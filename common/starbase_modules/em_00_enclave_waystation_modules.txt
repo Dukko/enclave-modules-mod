@@ -1,0 +1,769 @@
+# =============================================================================
+# ENCLAVE MODULES MOD - Waystation Modules
+# New waystation modules for Shroudwalker and Mindwarden enclaves.
+# For nomadic empires only.
+#
+# These are intentionally different in character from the starbase buildings:
+#   - The traditional CONDUIT/VIGIL are anchored, fortified, and deep.
+#   - The nomadic COMMUNION CHAMBER/MONITORING POST are mobile, networked,
+#     and emphasize breadth over depth — insights shared across the wayline.
+#
+# FLAG NAME NOTES (verify against vanilla Overlord DLC files if needed):
+#   shroudwalker_enclave_country        - country flag set on the Shroudwalker enclave's own country
+#   shroudwalker_enclave_diplomacy_engaged - set on player country at first Shroudwalker contact
+#   is_mercenary_mindwarden_enclave     - scripted trigger for Mindwarden enclave country
+#   (Mindwardens have no "diplomacy engaged" flag; identified via scripted trigger only)
+# =============================================================================
+
+# =============================================================================
+# SHROUD COMMUNION CHAMBER
+# Unlike the sedentary Shroud Conduit, this chamber is built for wanderers.
+# The Shroudwalkers have discovered that nomads encounter the Shroud freshly
+# with each passing — unburdened by accumulated expectation. Each system brings
+# a new aspect of the Shroud's face.
+#
+# Where the Conduit builds depth, the Communion Chamber builds breadth:
+# insights gathered here flow across the wayline network to every waystation.
+#
+# Psionic nomads commune most directly, gaining spiritual and societal insight.
+# Non-psionic nomads observe with scholarly precision, gaining research.
+# =============================================================================
+waystation_shroud_communion = {
+	icon = "GFX_spaceport_module_dimensional_shrine"
+	section = "SCIENCE_STARBASE_SECTION"
+	construction_days = 180
+	starbase_type = waystation
+	category = sm_enclave_cat
+
+	starbase_limit = {
+		base = 1
+	}
+
+	potential = {
+		exists = owner
+		is_waystation_starbase = yes
+		owner = {
+			is_homicidal = no
+			has_country_flag = shroudwalker_enclave_diplomacy_engaged
+		}
+	}
+
+	possible = {
+		custom_tooltip = {
+			fail_text = "em_requires_shroudwalker_enclave"
+			solar_system = {
+				has_star_flag = enclave
+				any_fleet_in_system = {
+					owner? = {
+						has_country_flag = shroudwalker_enclave_country
+					}
+				}
+			}
+		}
+		custom_tooltip = {
+			fail_text = "em_requires_shroudwalker_opinion_60"
+			solar_system = {
+				any_fleet_in_system = {
+					owner? = {
+						has_country_flag = shroudwalker_enclave_country
+						opinion = {
+							who = root.owner
+							value >= 60
+						}
+					}
+				}
+			}
+		}
+	}
+
+	resources = {
+		category = starbase_waystations_modules
+		cost = {
+			alloys = 100
+		}
+		upkeep = {
+			trade = 2
+		}
+	}
+
+	# Base: unity drawn from the Shroud's presence at the enclave site
+	station_modifier = {
+		starbase_collected_system_unity_add = 10
+	}
+
+	# Psionic nomads: direct communion yields spiritual and societal insight
+	triggered_station_modifier = {
+		potential = {
+			owner? = {
+				OR = {
+					has_tradition = tr_psionics_adopt
+					species = { has_trait = trait_psionic }
+				}
+			}
+		}
+		starbase_collected_system_unity_add = 5
+		starbase_collected_system_society_research_add = 5
+	}
+
+	# Psionic nomads with Zro mining tap the Shroud's residual energy
+	triggered_station_modifier = {
+		potential = {
+			owner? = {
+				has_technology = tech_mine_zro
+				OR = {
+					has_tradition = tr_psionics_adopt
+					species = { has_trait = trait_psionic }
+				}
+			}
+		}
+		starbase_collected_system_sr_zro_add = 1
+	}
+
+	# Non-psionic nomads: the outsider's perspective yields its own discoveries
+	triggered_station_modifier = {
+		potential = {
+			owner? = {
+				NOR = {
+					has_tradition = tr_psionics_adopt
+					species = { has_trait = trait_psionic }
+					species = { has_trait = trait_latent_psionic }
+				}
+			}
+		}
+		starbase_collected_system_physics_research_add = 3
+		starbase_collected_system_society_research_add = 2
+	}
+
+	# Network modifier: insights from the Communion Chamber flow along the wayline
+	# (broader but shallower than the fixed Conduit's -5% tradition reduction)
+	waystation_network_country_modifier = {
+		custom_tooltip = wayline_enclave_effects_tt
+		show_only_custom_tooltip = no
+		tradition_cost_mult = -0.03
+		research_sharing_mult = 0.02
+	}
+
+	# Joyous Enlightenment: the shared journey amplifies every commune
+	triggered_station_modifier = {
+		potential = {
+			owner? = {
+				has_country_flag = sacred_path_joyous_enlightenment
+			}
+			has_neighboring_waystation = yes
+		}
+		custom_tooltip = blessings_joyous_enlightenment_tt
+		show_only_custom_tooltip = no
+		starbase_collected_system_unity_add = 10
+	}
+
+	# Middle Path - not a sacred site
+	triggered_station_modifier = {
+		potential = {
+			owner? = {
+				has_country_flag = sacred_path_middle_path
+			}
+			is_sacred_site_waystation = no
+		}
+		custom_tooltip = bonus_middle_path_tt
+		show_only_custom_tooltip = no
+		starbase_collected_system_unity_add = 5
+	}
+
+	# Middle Path - sacred site: the Shroud speaks most clearly at sacred places
+	triggered_station_modifier = {
+		potential = {
+			owner? = {
+				has_country_flag = sacred_path_middle_path
+			}
+			is_sacred_site_waystation = yes
+		}
+		custom_tooltip = bonus_sacred_site_tt
+		show_only_custom_tooltip = no
+		starbase_collected_system_unity_add = 10
+	}
+
+	ai_weight = {
+		weight = 100
+		modifier = {
+			factor = 2
+			owner? = {
+				OR = {
+					has_tradition = tr_psionics_adopt
+					species = { has_trait = trait_psionic }
+				}
+			}
+		}
+	}
+}
+
+# =============================================================================
+# WARDEN'S MONITORING POST
+# The Mindwardens have found nomadic empires to be invaluable allies —
+# their waystations extend coverage into reaches no fixed Vigil can watch.
+# This post carries Mindwarden detection equipment and transmits intelligence
+# across the wayline to every waystation in the network.
+#
+# Unlike the fortified Vigil, the Monitoring Post is a network node, not a
+# fortress. It trades structural permanence for reach and mobility.
+#
+# Militarist nomads integrate Warden combat discipline into their forces.
+# Academic nomads study the suppression technology in transit.
+# Machine empires are the Mindwardens' most trusted mobile partners.
+#
+# Cannot be built by empires with psionic founder species.
+# =============================================================================
+waystation_warden_monitoring_post = {
+	icon = "GFX_spaceport_module_detecton_array"
+	section = "SCIENCE_STARBASE_SECTION"
+	construction_days = 180
+	starbase_type = waystation
+	category = sm_enclave_cat
+
+	starbase_limit = {
+		base = 1
+	}
+
+	potential = {
+		exists = owner
+		is_waystation_starbase = yes
+		owner = {
+			is_homicidal = no
+			# Psionic founder species cannot partner with Mindwardens
+			species = {
+				NOT = { has_trait = trait_psionic }
+				NOT = { has_trait = trait_latent_psionic }
+			}
+		}
+		# Mindwardens have no "diplomacy engaged" player flag — gate on fleet presence directly
+		solar_system = {
+			any_fleet_in_system = {
+				owner? = {
+					is_mercenary_mindwarden_enclave = yes
+				}
+			}
+		}
+	}
+
+	possible = {
+		custom_tooltip = {
+			fail_text = "em_requires_mindwarden_enclave"
+			solar_system = {
+				has_star_flag = enclave
+				any_fleet_in_system = {
+					owner? = {
+						is_mercenary_mindwarden_enclave = yes
+					}
+				}
+			}
+		}
+		custom_tooltip = {
+			fail_text = "em_requires_mindwarden_opinion_60"
+			solar_system = {
+				any_fleet_in_system = {
+					owner? = {
+						is_mercenary_mindwarden_enclave = yes
+						opinion = {
+							who = root.owner
+							value >= 60
+						}
+					}
+				}
+			}
+		}
+	}
+
+	resources = {
+		category = starbase_waystations_modules
+		cost = {
+			alloys = 100
+		}
+		upkeep = {
+			trade = 2
+		}
+	}
+
+	# Core: detection boost at this waystation
+	station_modifier = {
+		ship_cloaking_detection_add = 2
+	}
+
+	# Ships orbiting benefit from enhanced sensor coverage
+	orbit_modifier = {
+		ship_cloaking_detection_add = 1
+	}
+
+	# Non-militarist: research into psionic suppression as mobile scholars
+	triggered_station_modifier = {
+		potential = {
+			owner? = {
+				NOR = {
+					has_ethic = ethic_militarist
+					has_ethic = ethic_fanatic_militarist
+				}
+			}
+		}
+		starbase_collected_system_physics_research_add = 5
+	}
+
+	# Militarist nomads: combat-hardened monitoring, Warden tactics applied to raids
+	triggered_station_modifier = {
+		potential = {
+			owner? = {
+				OR = {
+					has_ethic = ethic_militarist
+					has_ethic = ethic_fanatic_militarist
+					has_valid_civic = civic_barbaric_despoilers
+					has_valid_civic = civic_void_reavers
+				}
+			}
+		}
+		ship_hull_mult = 0.05
+	}
+
+	triggered_country_modifier = {
+		potential = {
+			owner? = {
+				OR = {
+					has_ethic = ethic_militarist
+					has_ethic = ethic_fanatic_militarist
+					has_valid_civic = civic_barbaric_despoilers
+					has_valid_civic = civic_void_reavers
+				}
+			}
+		}
+		country_army_damage_mult = 0.05
+	}
+
+	# Machine empires: exceptional anti-psionic partners, additional detection
+	triggered_station_modifier = {
+		potential = {
+			owner? = {
+				is_machine_empire = yes
+			}
+		}
+		ship_cloaking_detection_add = 1
+	}
+
+	# Network modifier: Mindwarden monitoring and logistical support across the wayline
+	# (more intel-focused than the fixed Vigil's fortified posture)
+	waystation_network_country_modifier = {
+		custom_tooltip = wayline_enclave_effects_tt
+		show_only_custom_tooltip = no
+		ship_upkeep_mult = -0.05
+		spy_network_daily_value_mult = 0.05
+	}
+
+	# Joyous Enlightenment: connected waystations share detection data in real time
+	triggered_station_modifier = {
+		potential = {
+			owner? = {
+				has_country_flag = sacred_path_joyous_enlightenment
+			}
+			has_neighboring_waystation = yes
+		}
+		custom_tooltip = blessings_joyous_enlightenment_tt
+		show_only_custom_tooltip = no
+		ship_cloaking_detection_add = 1
+		starbase_collected_system_physics_research_add = 5
+	}
+
+	# Middle Path - not a sacred site
+	triggered_station_modifier = {
+		potential = {
+			owner? = {
+				has_country_flag = sacred_path_middle_path
+			}
+			is_sacred_site_waystation = no
+		}
+		custom_tooltip = bonus_middle_path_tt
+		show_only_custom_tooltip = no
+		ship_cloaking_detection_add = 1
+	}
+
+	# Middle Path - sacred site: psionic activity peaks here, monitoring is critical
+	triggered_station_modifier = {
+		potential = {
+			owner? = {
+				has_country_flag = sacred_path_middle_path
+			}
+			is_sacred_site_waystation = yes
+		}
+		custom_tooltip = bonus_sacred_site_tt
+		show_only_custom_tooltip = no
+		ship_cloaking_detection_add = 2
+	}
+
+	ai_weight = {
+		weight = 100
+		modifier = {
+			factor = 2
+			owner? = {
+				OR = {
+					has_ethic = ethic_militarist
+					has_ethic = ethic_fanatic_militarist
+				}
+			}
+		}
+		modifier = {
+			factor = 2
+			owner? = {
+				is_machine_empire = yes
+			}
+		}
+		modifier = {
+			factor = 0
+			owner? = {
+				species = { has_trait = trait_psionic }
+			}
+		}
+	}
+}
+
+# =============================================================================
+# XURACORP GAS CACHE
+# XuraCorp doesn't build permanent installations for nomads — that would
+# defeat the point. Instead they install portable extraction caches that
+# sync with the wayline: compact rigs that process exotic gases wherever
+# the waystation happens to be, then share extraction knowledge across
+# the network.
+#
+# Where the fixed XuraCorp Terminal digs deep, the Cache casts wide.
+# =============================================================================
+waystation_xuracorp_gas_cache = {
+	icon = "GFX_spaceport_module_resource_silo"
+	section = "SCIENCE_STARBASE_SECTION"
+	construction_days = 180
+	starbase_type = waystation
+	category = sm_enclave_cat
+
+	starbase_limit = {
+		base = 1
+	}
+
+	potential = {
+		exists = owner
+		is_waystation_starbase = yes
+		owner = {
+			is_homicidal = no
+			is_gestalt = no
+			has_country_flag = em_xuracorp_partnership
+		}
+		solar_system = {
+			any_fleet_in_system = {
+				owner? = {
+					has_country_flag = trader_enclave_country_1  # XuraCorp
+				}
+			}
+		}
+	}
+
+	possible = {
+		custom_tooltip = {
+			fail_text = "em_requires_xuracorp_enclave"
+			solar_system = {
+				has_star_flag = enclave
+				any_fleet_in_system = {
+					owner? = {
+						has_country_flag = trader_enclave_country_1
+					}
+				}
+			}
+		}
+	}
+
+	resources = {
+		category = starbase_waystations_modules
+		cost = {
+			alloys = 100
+		}
+		upkeep = {
+			trade = 2
+		}
+	}
+
+	# Core: XuraCorp rigs harvest exotic gases from the local system
+	station_modifier = {
+		starbase_collected_system_exotic_gases_add = 2
+	}
+
+	# Network: XuraCorp extraction doctrine propagates across the wayline
+	waystation_network_country_modifier = {
+		custom_tooltip = wayline_enclave_effects_tt
+		show_only_custom_tooltip = no
+		planet_jobs_exotic_gases_produces_mult = 0.10
+	}
+
+	# Joyous Enlightenment: shared extraction data accelerates the whole network
+	triggered_station_modifier = {
+		potential = {
+			owner? = { has_country_flag = sacred_path_joyous_enlightenment }
+			has_neighboring_waystation = yes
+		}
+		custom_tooltip = blessings_joyous_enlightenment_tt
+		show_only_custom_tooltip = no
+		starbase_collected_system_exotic_gases_add = 1
+	}
+
+	# Middle Path - not a sacred site
+	triggered_station_modifier = {
+		potential = {
+			owner? = { has_country_flag = sacred_path_middle_path }
+			is_sacred_site_waystation = no
+		}
+		custom_tooltip = bonus_middle_path_tt
+		show_only_custom_tooltip = no
+		starbase_collected_system_exotic_gases_add = 1
+	}
+
+	# Middle Path - sacred site
+	triggered_station_modifier = {
+		potential = {
+			owner? = { has_country_flag = sacred_path_middle_path }
+			is_sacred_site_waystation = yes
+		}
+		custom_tooltip = bonus_sacred_site_tt
+		show_only_custom_tooltip = no
+		starbase_collected_system_exotic_gases_add = 2
+	}
+
+	ai_weight = {
+		weight = 100
+		modifier = {
+			factor = 0
+			owner? = { is_gestalt = yes }
+		}
+	}
+}
+
+# =============================================================================
+# RIGGAN MOTE DEPOT
+# The Riggans have spent millennia routing trade across the stars. Their
+# mote depots are masterclasses in mobile logistics: pressurized holding
+# tanks, stabilized transit chambers, and routing algorithms that keep
+# volatile motes from becoming very, very messy.
+#
+# A Riggan Depot on your waystation means their logistics officers are
+# aboard, teaching your crews the Riggan way.
+# =============================================================================
+waystation_riggan_mote_depot = {
+	icon = "GFX_spaceport_module_resource_silo"
+	section = "SCIENCE_STARBASE_SECTION"
+	construction_days = 180
+	starbase_type = waystation
+	category = sm_enclave_cat
+
+	starbase_limit = {
+		base = 1
+	}
+
+	potential = {
+		exists = owner
+		is_waystation_starbase = yes
+		owner = {
+			is_homicidal = no
+			is_gestalt = no
+			has_country_flag = em_riggan_partnership
+		}
+		solar_system = {
+			any_fleet_in_system = {
+				owner? = {
+					has_country_flag = trader_enclave_country_2  # Riggan Commerce Exchange
+				}
+			}
+		}
+	}
+
+	possible = {
+		custom_tooltip = {
+			fail_text = "em_requires_riggan_enclave"
+			solar_system = {
+				has_star_flag = enclave
+				any_fleet_in_system = {
+					owner? = {
+						has_country_flag = trader_enclave_country_2
+					}
+				}
+			}
+		}
+	}
+
+	resources = {
+		category = starbase_waystations_modules
+		cost = {
+			alloys = 100
+		}
+		upkeep = {
+			trade = 2
+		}
+	}
+
+	# Core: Riggan containment rigs extract and hold local volatile motes
+	station_modifier = {
+		starbase_collected_system_volatile_motes_add = 2
+	}
+
+	# Network: Riggan logistics expertise improves mote extraction empire-wide
+	waystation_network_country_modifier = {
+		custom_tooltip = wayline_enclave_effects_tt
+		show_only_custom_tooltip = no
+		planet_jobs_volatile_motes_produces_mult = 0.10
+	}
+
+	# Joyous Enlightenment: shared routing algorithms across the network
+	triggered_station_modifier = {
+		potential = {
+			owner? = { has_country_flag = sacred_path_joyous_enlightenment }
+			has_neighboring_waystation = yes
+		}
+		custom_tooltip = blessings_joyous_enlightenment_tt
+		show_only_custom_tooltip = no
+		starbase_collected_system_volatile_motes_add = 1
+	}
+
+	# Middle Path - not a sacred site
+	triggered_station_modifier = {
+		potential = {
+			owner? = { has_country_flag = sacred_path_middle_path }
+			is_sacred_site_waystation = no
+		}
+		custom_tooltip = bonus_middle_path_tt
+		show_only_custom_tooltip = no
+		starbase_collected_system_volatile_motes_add = 1
+	}
+
+	# Middle Path - sacred site
+	triggered_station_modifier = {
+		potential = {
+			owner? = { has_country_flag = sacred_path_middle_path }
+			is_sacred_site_waystation = yes
+		}
+		custom_tooltip = bonus_sacred_site_tt
+		show_only_custom_tooltip = no
+		starbase_collected_system_volatile_motes_add = 2
+	}
+
+	ai_weight = {
+		weight = 100
+		modifier = {
+			factor = 0
+			owner? = { is_gestalt = yes }
+		}
+	}
+}
+
+# =============================================================================
+# MUUTAGAN CRYSTAL EXCHANGE
+# The Muutagans don't just sell crystals — they teach you to understand
+# them. A Muutagan Exchange aboard a waystation is part market, part
+# school: their lapidaries share resonance-reading techniques with
+# imperial miners across the wayline, producing measurably better yields
+# at every extraction site in the network.
+#
+# Not everyone appreciates the subtlety. The Muutagans notice, and
+# remember — which is why opinion matters more than credits.
+# =============================================================================
+waystation_muutagan_crystal_exchange = {
+	icon = "GFX_spaceport_module_resource_silo"
+	section = "SCIENCE_STARBASE_SECTION"
+	construction_days = 180
+	starbase_type = waystation
+	category = sm_enclave_cat
+
+	starbase_limit = {
+		base = 1
+	}
+
+	potential = {
+		exists = owner
+		is_waystation_starbase = yes
+		owner = {
+			is_homicidal = no
+			is_gestalt = no
+			has_country_flag = em_muutagan_partnership
+		}
+		solar_system = {
+			any_fleet_in_system = {
+				owner? = {
+					has_country_flag = trader_enclave_country_3  # Muutagan Merchant Guild
+				}
+			}
+		}
+	}
+
+	possible = {
+		custom_tooltip = {
+			fail_text = "em_requires_muutagan_enclave"
+			solar_system = {
+				has_star_flag = enclave
+				any_fleet_in_system = {
+					owner? = {
+						has_country_flag = trader_enclave_country_3
+					}
+				}
+			}
+		}
+	}
+
+	resources = {
+		category = starbase_waystations_modules
+		cost = {
+			alloys = 100
+		}
+		upkeep = {
+			trade = 2
+		}
+	}
+
+	# Core: Muutagan resonance technique draws more from local crystal fields
+	station_modifier = {
+		starbase_collected_system_rare_crystals_add = 2
+	}
+
+	# Network: lapidary training spreads across the wayline
+	waystation_network_country_modifier = {
+		custom_tooltip = wayline_enclave_effects_tt
+		show_only_custom_tooltip = no
+		planet_jobs_rare_crystals_produces_mult = 0.10
+	}
+
+	# Joyous Enlightenment: crystal resonance amplified by the shared path
+	triggered_station_modifier = {
+		potential = {
+			owner? = { has_country_flag = sacred_path_joyous_enlightenment }
+			has_neighboring_waystation = yes
+		}
+		custom_tooltip = blessings_joyous_enlightenment_tt
+		show_only_custom_tooltip = no
+		starbase_collected_system_rare_crystals_add = 1
+	}
+
+	# Middle Path - not a sacred site
+	triggered_station_modifier = {
+		potential = {
+			owner? = { has_country_flag = sacred_path_middle_path }
+			is_sacred_site_waystation = no
+		}
+		custom_tooltip = bonus_middle_path_tt
+		show_only_custom_tooltip = no
+		starbase_collected_system_rare_crystals_add = 1
+	}
+
+	# Middle Path - sacred site
+	triggered_station_modifier = {
+		potential = {
+			owner? = { has_country_flag = sacred_path_middle_path }
+			is_sacred_site_waystation = yes
+		}
+		custom_tooltip = bonus_sacred_site_tt
+		show_only_custom_tooltip = no
+		starbase_collected_system_rare_crystals_add = 2
+	}
+
+	ai_weight = {
+		weight = 100
+		modifier = {
+			factor = 0
+			owner? = { is_gestalt = yes }
+		}
+	}
+}

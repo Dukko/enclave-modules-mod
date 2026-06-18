@@ -1,0 +1,10 @@
+# ENCLAVE MODULES MOD — On Actions
+
+on_five_year_pulse_country = {
+	events = {
+		em_enclave.10	# The Traders' Compact (all three enclaves — takes priority)
+		em_enclave.1	# XuraCorp proposal (individual)
+		em_enclave.2	# Riggan proposal (individual)
+		em_enclave.3	# Muutagan proposal (individual)
+	}
+}

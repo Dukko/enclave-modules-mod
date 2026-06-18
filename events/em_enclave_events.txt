@@ -1,0 +1,262 @@
+####################################
+# ENCLAVE MODULES MOD — Events
+#
+# em_enclave.1  — XuraCorp Proposal (exotic gases)
+# em_enclave.2  — Riggan Proposal (volatile motes)
+# em_enclave.3  — Muutagan Proposal (rare crystals)
+# em_enclave.10 — The Traders' Compact (all three, combined deal)
+#
+# Events fire on_five_year_pulse_country.
+# Individual events only fire when NOT all three enclaves qualify,
+# so the combined event (em_enclave.10) takes priority when all three do.
+####################################
+
+namespace = em_enclave
+
+# ============================================================================
+# SHARED TRIGGER HELPERS (via trigger conditions inline)
+#
+# "all three qualify" means:
+#   any_country { trader_enclave_country_1, opinion >= 50 }
+#   any_country { trader_enclave_country_2, opinion >= 50 }
+#   any_country { trader_enclave_country_3, opinion >= 50 }
+#
+# Individual events add NOT = { <all three qualify> } to block when combined
+# event should fire instead.
+# ============================================================================
+
+# ============================================================================
+# em_enclave.1 — XURACORP PROPOSAL
+# Fires when XuraCorp likes you (opinion >= 50) but NOT all three enclaves do.
+# ============================================================================
+country_event = {
+	id = em_enclave.1
+	title = em_enclave.1.name
+	desc = em_enclave.1.desc
+	picture = GFX_evt_tradedeal
+
+	is_triggered_only = yes
+
+	trigger = {
+		is_country_type = default
+		is_homicidal = no
+		is_gestalt = no
+		has_country_flag = has_market_access
+		NOT = { has_country_flag = em_xuracorp_partnership }
+		NOT = { has_country_flag = em_xuracorp_declined }
+		NOT = { has_country_flag = em_xuracorp_cooldown }
+		any_country = {
+			has_country_flag = trader_enclave_country_1
+			opinion = { who = root value >= 50 }
+		}
+		# Block if all three qualify — let the combined event fire instead
+		NOT = {
+			AND = {
+				any_country = {
+					has_country_flag = trader_enclave_country_2
+					opinion = { who = root value >= 50 }
+				}
+				any_country = {
+					has_country_flag = trader_enclave_country_3
+					opinion = { who = root value >= 50 }
+				}
+			}
+		}
+	}
+
+	option = {
+		name = em_enclave.1.a
+		add_resource = { energy = -700 }
+		set_country_flag = em_xuracorp_partnership
+	}
+	option = {
+		name = em_enclave.1.b
+		set_timed_country_flag = {
+			flag = em_xuracorp_cooldown
+			days = 3650
+		}
+	}
+	option = {
+		name = em_enclave.1.c
+		set_country_flag = em_xuracorp_declined
+	}
+}
+
+# ============================================================================
+# em_enclave.2 — RIGGAN PROPOSAL
+# Fires when the Riggans like you (opinion >= 50) but NOT all three enclaves do.
+# ============================================================================
+country_event = {
+	id = em_enclave.2
+	title = em_enclave.2.name
+	desc = em_enclave.2.desc
+	picture = GFX_evt_tradedeal
+
+	is_triggered_only = yes
+
+	trigger = {
+		is_country_type = default
+		is_homicidal = no
+		is_gestalt = no
+		has_country_flag = has_market_access
+		NOT = { has_country_flag = em_riggan_partnership }
+		NOT = { has_country_flag = em_riggan_declined }
+		NOT = { has_country_flag = em_riggan_cooldown }
+		any_country = {
+			has_country_flag = trader_enclave_country_2
+			opinion = { who = root value >= 50 }
+		}
+		NOT = {
+			AND = {
+				any_country = {
+					has_country_flag = trader_enclave_country_1
+					opinion = { who = root value >= 50 }
+				}
+				any_country = {
+					has_country_flag = trader_enclave_country_3
+					opinion = { who = root value >= 50 }
+				}
+			}
+		}
+	}
+
+	option = {
+		name = em_enclave.2.a
+		add_resource = { energy = -700 }
+		set_country_flag = em_riggan_partnership
+	}
+	option = {
+		name = em_enclave.2.b
+		set_timed_country_flag = {
+			flag = em_riggan_cooldown
+			days = 3650
+		}
+	}
+	option = {
+		name = em_enclave.2.c
+		set_country_flag = em_riggan_declined
+	}
+}
+
+# ============================================================================
+# em_enclave.3 — MUUTAGAN PROPOSAL
+# Fires when the Muutagans like you (opinion >= 50) but NOT all three enclaves do.
+# ============================================================================
+country_event = {
+	id = em_enclave.3
+	title = em_enclave.3.name
+	desc = em_enclave.3.desc
+	picture = GFX_evt_tradedeal
+
+	is_triggered_only = yes
+
+	trigger = {
+		is_country_type = default
+		is_homicidal = no
+		is_gestalt = no
+		has_country_flag = has_market_access
+		NOT = { has_country_flag = em_muutagan_partnership }
+		NOT = { has_country_flag = em_muutagan_declined }
+		NOT = { has_country_flag = em_muutagan_cooldown }
+		any_country = {
+			has_country_flag = trader_enclave_country_3
+			opinion = { who = root value >= 50 }
+		}
+		NOT = {
+			AND = {
+				any_country = {
+					has_country_flag = trader_enclave_country_1
+					opinion = { who = root value >= 50 }
+				}
+				any_country = {
+					has_country_flag = trader_enclave_country_2
+					opinion = { who = root value >= 50 }
+				}
+			}
+		}
+	}
+
+	option = {
+		name = em_enclave.3.a
+		add_resource = { energy = -700 }
+		set_country_flag = em_muutagan_partnership
+	}
+	option = {
+		name = em_enclave.3.b
+		set_timed_country_flag = {
+			flag = em_muutagan_cooldown
+			days = 3650
+		}
+	}
+	option = {
+		name = em_enclave.3.c
+		set_country_flag = em_muutagan_declined
+	}
+}
+
+# ============================================================================
+# em_enclave.10 — THE TRADERS' COMPACT (combined deal)
+# Fires when ALL THREE enclaves have opinion >= 50.
+# Unlocks all three partnerships at a modest discount vs buying individually.
+# At least one partnership flag must still be missing (don't re-offer a full set).
+# ============================================================================
+country_event = {
+	id = em_enclave.10
+	title = em_enclave.10.name
+	desc = em_enclave.10.desc
+	picture = GFX_evt_tradedeal
+
+	is_triggered_only = yes
+
+	trigger = {
+		is_country_type = default
+		is_homicidal = no
+		is_gestalt = no
+		has_country_flag = has_market_access
+		NOT = { has_country_flag = em_trader_compact_declined }
+		NOT = { has_country_flag = em_trader_compact_cooldown }
+		# Not already holding all three
+		OR = {
+			NOT = { has_country_flag = em_xuracorp_partnership }
+			NOT = { has_country_flag = em_riggan_partnership }
+			NOT = { has_country_flag = em_muutagan_partnership }
+		}
+		# All three must qualify
+		any_country = {
+			has_country_flag = trader_enclave_country_1
+			opinion = { who = root value >= 50 }
+		}
+		any_country = {
+			has_country_flag = trader_enclave_country_2
+			opinion = { who = root value >= 50 }
+		}
+		any_country = {
+			has_country_flag = trader_enclave_country_3
+			opinion = { who = root value >= 50 }
+		}
+	}
+
+	# Accept — 2000 energy for all three (saves 100 vs 3 × 700)
+	option = {
+		name = em_enclave.10.a
+		add_resource = { energy = -2000 }
+		set_country_flag = em_xuracorp_partnership
+		set_country_flag = em_riggan_partnership
+		set_country_flag = em_muutagan_partnership
+	}
+
+	# Decline for now — 10-year cooldown
+	option = {
+		name = em_enclave.10.b
+		set_timed_country_flag = {
+			flag = em_trader_compact_cooldown
+			days = 3650
+		}
+	}
+
+	# Decline the combined deal permanently (individual events can still fire later)
+	option = {
+		name = em_enclave.10.c
+		set_country_flag = em_trader_compact_declined
+	}
+}

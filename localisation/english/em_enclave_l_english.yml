@@ -1,0 +1,106 @@
+l_english:
+
+ # =============================================================================
+ # SHROUD CONDUIT — Starbase Building (Traditional Empires)
+ # =============================================================================
+ em_shroud_conduit:0 "Shroud Conduit"
+ em_shroud_conduit_desc:0 "A permanent conduit to the Shroud, established in deep collaboration with the Shroudwalker Enclave. Anchored in place, it builds a resonant, abiding connection that no waystation could match.\n\n§YPsionic empires§! commune directly with the Shroud's energies, gaining spiritual insight, society research, and — with the right technology — Zro.\n\n§YNon-psionic empires§! approach the Shroud from without, studying it with scientific rigor and gaining physics and society research.\n\n§YSpiritualist empires§! find their citizens moved by its proximity, boosting unity production and tradition acquisition empire-wide."
+
+ # =============================================================================
+ # WARDEN'S VIGIL — Starbase Building (Traditional Empires)
+ # =============================================================================
+ em_warden_vigil:0 "Warden's Vigil"
+ em_warden_vigil_desc:0 "A permanent monitoring installation staffed with Mindwarden expertise. The Vigil watches for psionic anomalies, disrupts unauthorized Shroud contact, and serves as an anchor for Mindwarden logistical networks in this region of space.\n\nUnlike the nomadic §YMonitoring Post§!, the Vigil is fortified and enduring — a deterrent as much as an intelligence tool.\n\n§YMilitarist empires§! channel Warden discipline into ground forces, boosting army damage and morale.\n\n§YAcademic empires§! study the suppression technology, gaining physics research.\n\n§YMachine intelligences§! are the Mindwardens' most trusted partners — additional detection range and reduced upkeep costs reward the alliance."
+
+ # =============================================================================
+ # SHROUD COMMUNION CHAMBER — Waystation Module (Nomadic Empires)
+ # =============================================================================
+ waystation_shroud_communion:0 "Shroud Communion Chamber"
+ waystation_shroud_communion_desc:0 "Built for wanderers, not settlers. The Shroudwalkers have found that nomadic empires encounter the Shroud differently — unburdened by accumulated expectation, each system reveals a new aspect. Where the anchored §YConduit§! builds depth, the Communion Chamber builds breadth, sharing insights across the wayline network.\n\n§YPsionic nomads§! commune most directly, gaining enhanced unity, society research, and Zro with the right technology.\n\n§YNon-psionic nomads§! observe with a scholar's precision, gaining physics and society research from each passing encounter.\n\nNetwork effects: reduced tradition costs and improved research sharing across all waystations in the network."
+
+ # =============================================================================
+ # WARDEN'S MONITORING POST — Waystation Module (Nomadic Empires)
+ # =============================================================================
+ waystation_warden_monitoring_post:0 "Warden's Monitoring Post"
+ waystation_warden_monitoring_post_desc:0 "The Mindwardens have found nomadic empires to be invaluable allies — their waystations extend monitoring coverage into reaches no fixed Vigil can watch. This post carries Mindwarden detection equipment and transmits intelligence across the wayline.\n\nUnlike the fortified §YVigil§!, the Monitoring Post is a network node, not a fortress. It trades structural permanence for reach.\n\n§YMilitarist nomads§! integrate Warden combat doctrine, strengthening their forces.\n\n§YAcademic nomads§! study psionic suppression technology in transit, gaining physics research.\n\n§YMachine empires§! receive enhanced detection and additional logistical support — the Mindwardens trust machine logic above all others.\n\nNetwork effects: reduced ship upkeep and improved spy network growth across all waystations."
+
+ # =============================================================================
+ # TRADER EVENTS — em_enclave.1 / .2 / .3 / .10
+ # =============================================================================
+
+ # em_enclave.1 — XuraCorp
+ em_enclave.1.name:0 "A Corporate Proposition"
+ em_enclave.1.desc:0 "Welcome, welcome! Always a pleasure to meet a new potential partner.\n\nI am a Senior Extraction Liaison with XuraCorp - in short, I find opportunities and I close deals. Today, I am here about yours.\n\nXuraCorp would like to formalize our relationship. For a modest investment, we will embed our extraction specialists across your operations and share techniques for locating and refining exotic gas deposits that have taken us centuries to develop.\n\nWe think you will find it quite worthwhile."
+ em_enclave.1.a:0 "A sound investment. [700 Energy]"
+ em_enclave.1.b:0 "The timing is not ideal. Perhaps later."
+ em_enclave.1.c:0 "We have no interest in such arrangements."
+
+ # em_enclave.2 — Riggan Commerce Exchange
+ em_enclave.2.name:0 "Old Hands, New Offer"
+ em_enclave.2.desc:0 "I speak on behalf of the Riggan Commerce Exchange. We have been moving volatile motes across the stars for more than a thousand of your years - and we have learned a great deal along the way.\n\nWe would like to share that knowledge with you. Our logistics officers would embed with your mote operations and apply containment and extraction methods that are, if we may say so, second to none in the known galaxy.\n\nThe investment is reasonable. The returns, we expect, will be quite satisfying."
+ em_enclave.2.a:0 "Experience is worth paying for. [700 Energy]"
+ em_enclave.2.b:0 "We will consider it."
+ em_enclave.2.c:0 "We prefer to manage our own operations."
+
+ # em_enclave.3 — Muutagan Merchant Guild
+ em_enclave.3.name:0 "The Guild Extends an Invitation"
+ em_enclave.3.desc:0 "Well met, friends! I represent the Muutagan Merchant Guild - something of an institution when it comes to rare crystals.\n\nI will be direct: we would like to share our lapidary tradition with your people. Our merchants have spent generations learning to read crystal lattice structures, and the yields our methods unlock are quite remarkable.\n\nThis is not an offer we extend to just anyone. We think you have earned it - and we hope you agree the price is fair."
+ em_enclave.3.a:0 "We are honored. And we will pay. [700 Energy]"
+ em_enclave.3.b:0 "We must consider the offer carefully."
+ em_enclave.3.c:0 "We are not interested."
+
+ # em_enclave.10 — The Traders' Compact (all three)
+ em_enclave.10.name:0 "The Traders' Compact"
+ em_enclave.10.desc:0 "Ah - I see you have already met my colleagues from §HXuraCorp§! and the §HRiggan Commerce Exchange§!. We have been comparing notes, and it turns out we all had the same idea at around the same time.\n\nThe three of us would like to propose a joint arrangement. Exotic gas, volatile motes, rare crystals - all three covered in a single deal, at a price that reflects our genuine enthusiasm for working with you. We are calling it the §HTraders' Compact§!.\n\nWe are businesspeople, not a charity. But we do appreciate a good partner."
+ em_enclave.10.a:0 "A combined investment, then. [2000 Energy]"
+ em_enclave.10.b:0 "Too much at once. We will approach them individually."
+ em_enclave.10.c:0 "We will not be dealing with this cartel."
+
+ # =============================================================================
+ # XURACORP GAS TERMINAL — Starbase Building (Traditional Empires)
+ # =============================================================================
+ em_xuracorp_gas_terminal:0 "XuraCorp Extraction Terminal"
+ em_xuracorp_gas_terminal_desc:0 "A permanent XuraCorp installation staffed by their field engineers. Extraction rigs are calibrated to local exotic gas deposits using proprietary XuraCorp techniques, with methodology shared empire-wide through corporate training networks.\n\nProduces exotic gases directly and improves output from every gas-producing job in the empire.\n\nUnlocked by the §HXuraCorp§! partnership event."
+
+ # =============================================================================
+ # RIGGAN PROCESSING HUB — Starbase Building (Traditional Empires)
+ # =============================================================================
+ em_riggan_mote_hub:0 "Riggan Processing Hub"
+ em_riggan_mote_hub_desc:0 "Riggan Commerce Exchange logistics officers run this facility, applying millennia of volatile mote handling experience to your extraction operations. Their containment and refinement techniques reduce waste and increase usable yield across every mote-producing site in the empire.\n\nProduces volatile motes directly and improves output from every mote-producing job empire-wide.\n\nUnlocked by the §HRiggan Commerce Exchange§! partnership event."
+
+ # =============================================================================
+ # MUUTAGAN CRYSTAL ATELIER — Starbase Building (Traditional Empires)
+ # =============================================================================
+ em_muutagan_crystal_atelier:0 "Muutagan Crystal Atelier"
+ em_muutagan_crystal_atelier_desc:0 "More academy than industrial facility, the Atelier brings Muutagan lapidaries to train your mining crews in resonance-reading — the art of identifying the stress planes in rare crystal formations that ordinary extraction misses entirely.\n\nProduces rare crystals directly and improves output from every crystal-producing job in the empire.\n\nUnlocked by the §HMuutagan Merchant Guild§! partnership event."
+
+ # =============================================================================
+ # XURACORP GAS CACHE — Waystation Module (Nomadic Empires)
+ # =============================================================================
+ waystation_xuracorp_gas_cache:0 "XuraCorp Gas Cache"
+ waystation_xuracorp_gas_cache_desc:0 "Portable XuraCorp extraction hardware, compact enough for a waystation but effective enough to meaningfully improve exotic gas operations. Corporate extraction doctrine propagates across the wayline — XuraCorp knows how to scale.\n\nMore mobile but less intensive than a fixed §YExtraction Terminal§!. Unlocked by the §HXuraCorp§! partnership event."
+
+ # =============================================================================
+ # RIGGAN MOTE DEPOT — Waystation Module (Nomadic Empires)
+ # =============================================================================
+ waystation_riggan_mote_depot:0 "Riggan Mote Depot"
+ waystation_riggan_mote_depot_desc:0 "The Riggans have been moving volatile motes across the stars long enough to have solved every containment problem twice. Their depot uses stabilized transit chambers and predictive routing to keep mote operations efficient even as the waystation moves.\n\nRiggan logistics expertise propagates across the wayline, improving mote yields at every site in the network. Unlocked by the §HRiggan Commerce Exchange§! partnership event."
+
+ # =============================================================================
+ # MUUTAGAN CRYSTAL EXCHANGE — Waystation Module (Nomadic Empires)
+ # =============================================================================
+ waystation_muutagan_crystal_exchange:0 "Muutagan Crystal Exchange"
+ waystation_muutagan_crystal_exchange_desc:0 "Part market, part school — Muutagan lapidaries share resonance-reading techniques with your crews at each system the waystation visits, unlocking yields that standard extraction misses. Their knowledge propagates across the wayline to every extraction site in the network.\n\nUnlocked by the §HMuutagan Merchant Guild§! partnership event."
+
+ # =============================================================================
+ # TOOLTIP / FAIL TEXT KEYS
+ # =============================================================================
+ em_requires_shroudwalker_opinion:0 "Requires §Y75§! Opinion with the §HShroudwalker Enclave§!"
+ em_requires_shroudwalker_opinion_60:0 "Requires §Y60§! Opinion with the §HShroudwalker Enclave§!"
+ em_requires_mindwarden_opinion:0 "Requires §Y75§! Opinion with the §HMindwarden Enclave§!"
+ em_requires_mindwarden_opinion_60:0 "Requires §Y60§! Opinion with the §HMindwarden Enclave§!"
+ em_requires_shroudwalker_enclave:0 "Requires the §HShroudwalker Enclave§! to be present in this system"
+ em_requires_mindwarden_enclave:0 "Requires the §HMindwarden Enclave§! to be present in this system"
+ em_requires_xuracorp_enclave:0 "Requires §HXuraCorp§! to be present in this system"
+ em_requires_riggan_enclave:0 "Requires the §HRiggan Commerce Exchange§! to be present in this system"
+ em_requires_muutagan_enclave:0 "Requires the §HMuutagan Merchant Guild§! to be present in this system"

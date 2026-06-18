@@ -1,0 +1,590 @@
+# =============================================================================
+# ENCLAVE MODULES MOD - Starbase Buildings
+# New buildings for Shroudwalker and Mindwarden enclaves.
+# For traditional (non-nomadic) empires only.
+#
+# FLAG NAME NOTES (verify against vanilla Overlord DLC files if needed):
+#   shroudwalker_enclave_country        - country flag set on the Shroudwalker enclave's own country
+#   shroudwalker_enclave_diplomacy_engaged - set on player country at first Shroudwalker contact
+#   is_mercenary_mindwarden_enclave     - scripted trigger for Mindwarden enclave country
+#   (Mindwardens have no "diplomacy engaged" flag; identified via scripted trigger only)
+# =============================================================================
+
+# =============================================================================
+# SHROUD CONDUIT
+# A permanent conduit to the Shroud, anchored in collaboration with the
+# Shroudwalker Enclave. Unlike the nomadic Communion Chamber, this installation
+# builds up a deep, resonant connection over time in one place.
+#
+# Psionic empires commune directly, gaining spiritual insight and Zro.
+# Non-psionic empires study the phenomenon academically, gaining research.
+# Spiritualist empires find their citizens moved by proximity to the Shroud.
+# =============================================================================
+em_shroud_conduit = {
+	icon = "GFX_spaceport_module_dimensional_shrine"
+	construction_days = 360
+
+	potential = {
+		exists = owner
+		is_normal_starbase = yes
+		owner = {
+			is_homicidal = no
+			# Set on the player's country when they first engage with the Shroudwalker Enclave
+			has_country_flag = shroudwalker_enclave_diplomacy_engaged
+		}
+		# Must be in a Shroudwalker system with their fleet present
+		solar_system = {
+			any_fleet_in_system = {
+				owner? = {
+					# This country flag is set on the Shroudwalker enclave country itself
+					has_country_flag = shroudwalker_enclave_country
+				}
+			}
+		}
+	}
+
+	possible = {
+		custom_tooltip = {
+			fail_text = "em_requires_shroudwalker_opinion"
+			solar_system = {
+				any_fleet_in_system = {
+					owner? = {
+						has_country_flag = shroudwalker_enclave_country
+						opinion = {
+							who = root.owner
+							value >= 75
+						}
+					}
+				}
+			}
+		}
+	}
+
+	resources = {
+		category = starbase_buildings
+		cost = {
+			energy = 750
+		}
+		upkeep = {
+			energy = 3
+		}
+		# Base: unity for all empires who commune here
+		produces = {
+			unity = 5
+		}
+		# Psionic empires connect more deeply — stronger unity surge
+		produces = {
+			trigger = {
+				exists = owner
+				owner = {
+					OR = {
+						has_tradition = tr_psionics_adopt
+						species = { has_trait = trait_psionic }
+					}
+				}
+			}
+			unity = 5
+		}
+		# Psionic empires receive direct Shroud-sourced insights
+		produces = {
+			trigger = {
+				exists = owner
+				owner = {
+					OR = {
+						has_tradition = tr_psionics_adopt
+						species = { has_trait = trait_psionic }
+					}
+				}
+			}
+			society_research = 5
+		}
+		# Non-psionic empires study the Shroud as phenomenon, not experience
+		produces = {
+			trigger = {
+				exists = owner
+				owner = {
+					NOR = {
+						has_tradition = tr_psionics_adopt
+						species = { has_trait = trait_psionic }
+						species = { has_trait = trait_latent_psionic }
+					}
+				}
+			}
+			physics_research = 3
+			society_research = 2
+		}
+		# Spiritualist empires: citizens are moved by the Conduit's presence
+		produces = {
+			trigger = {
+				exists = owner
+				owner = {
+					OR = {
+						has_ethic = ethic_spiritualist
+						has_ethic = ethic_fanatic_spiritualist
+					}
+				}
+			}
+			unity = 3
+		}
+		# Psionic empires with Zro mining tap into residual Shroud energy
+		produces = {
+			trigger = {
+				exists = owner
+				owner = {
+					has_technology = tech_mine_zro
+					OR = {
+						has_tradition = tr_psionics_adopt
+						species = { has_trait = trait_psionic }
+					}
+				}
+			}
+			sr_zro = 1
+		}
+	}
+
+	# Empire-wide: the Shroud's wisdom eases the path of tradition
+	country_modifier = {
+		tradition_cost_mult = -0.05
+	}
+
+	# Spiritualist bonus: the Conduit galvanizes faith empire-wide
+	triggered_country_modifier = {
+		potential = {
+			owner = {
+				OR = {
+					has_ethic = ethic_spiritualist
+					has_ethic = ethic_fanatic_spiritualist
+				}
+			}
+		}
+		tradition_cost_mult = -0.03
+		unity_from_jobs_mult = 0.05
+	}
+
+	# Psionic ascension bonus: the Conduit amplifies active shroud contact
+	triggered_country_modifier = {
+		potential = {
+			owner = {
+				OR = {
+					has_tradition = tr_psionics_adopt
+					species = { has_trait = trait_psionic }
+				}
+			}
+		}
+		shroud_passive_psionic_mult = 0.10
+	}
+
+	ai_weight = {
+		weight = 100
+		modifier = {
+			factor = 3
+			owner = {
+				OR = {
+					has_tradition = tr_psionics_adopt
+					species = { has_trait = trait_psionic }
+				}
+			}
+		}
+		modifier = {
+			factor = 2
+			owner = {
+				OR = {
+					has_ethic = ethic_spiritualist
+					has_ethic = ethic_fanatic_spiritualist
+				}
+			}
+		}
+		modifier = {
+			factor = 0
+			owner = { is_nomadic = yes }
+		}
+	}
+}
+
+# =============================================================================
+# WARDEN'S VIGIL
+# A permanent monitoring installation staffed with Mindwarden expertise.
+# Watches for psionic anomalies, disrupts unauthorized Shroud contact, and
+# anchors Mindwarden logistical networks in the region.
+#
+# Unlike the nomadic Monitoring Post, the Vigil is fortified and permanent —
+# a deterrent as much as an intelligence tool.
+#
+# Militarist empires channel Warden discipline into ground forces.
+# Academic/materialist empires study the suppression technology itself.
+# Machine intelligences make exceptional partners — no psionic vulnerabilities.
+#
+# Cannot be built by empires with psionic founder species.
+# =============================================================================
+em_warden_vigil = {
+	icon = "GFX_spaceport_module_detecton_array"
+	construction_days = 360
+
+	potential = {
+		exists = owner
+		is_normal_starbase = yes
+		owner = {
+			is_homicidal = no
+			# Psionic empires are rejected by the Mindwardens entirely
+			species = {
+				NOT = { has_trait = trait_psionic }
+				NOT = { has_trait = trait_latent_psionic }
+			}
+		}
+		# Mindwardens have no "diplomacy engaged" player flag — gate on fleet presence directly
+		solar_system = {
+			any_fleet_in_system = {
+				owner? = {
+					is_mercenary_mindwarden_enclave = yes
+				}
+			}
+		}
+	}
+
+	possible = {
+		custom_tooltip = {
+			fail_text = "em_requires_mindwarden_opinion"
+			solar_system = {
+				any_fleet_in_system = {
+					owner? = {
+						is_mercenary_mindwarden_enclave = yes
+						opinion = {
+							who = root.owner
+							value >= 75
+						}
+					}
+				}
+			}
+		}
+	}
+
+	resources = {
+		category = starbase_buildings
+		cost = {
+			energy = 500
+			alloys = 100
+		}
+		upkeep = {
+			energy = 3
+		}
+		# Non-militarist empires: research into psionic suppression technology
+		produces = {
+			trigger = {
+				exists = owner
+				owner = {
+					NOR = {
+						has_ethic = ethic_militarist
+						has_ethic = ethic_fanatic_militarist
+					}
+				}
+			}
+			physics_research = 5
+		}
+	}
+
+	# Core: psionic detection and structural hardening
+	station_modifier = {
+		ship_cloaking_detection_add = 2
+		shipclass_starbase_hull_mult = 0.05
+	}
+
+	# Mindwarden logistical support: supply chain coordination
+	country_modifier = {
+		ship_upkeep_mult = -0.05
+	}
+
+	# Militarist empires: Warden combat doctrine applied to planetary assault forces
+	triggered_country_modifier = {
+		potential = {
+			owner = {
+				OR = {
+					has_ethic = ethic_militarist
+					has_ethic = ethic_fanatic_militarist
+				}
+			}
+		}
+		country_army_damage_mult = 0.10
+		army_defense_morale_mult = 0.10
+	}
+
+	# Machine intelligence: perfect anti-psionic partners, zero susceptibility
+	triggered_station_modifier = {
+		potential = {
+			owner = {
+				is_machine_empire = yes
+			}
+		}
+		ship_cloaking_detection_add = 1
+	}
+
+	# Machine empire country bonus: the Mindwardens trust machine logic
+	triggered_country_modifier = {
+		potential = {
+			owner = {
+				is_machine_empire = yes
+			}
+		}
+		ship_upkeep_mult = -0.05
+	}
+
+	ai_weight = {
+		weight = 100
+		modifier = {
+			factor = 2
+			owner = {
+				OR = {
+					has_ethic = ethic_militarist
+					has_ethic = ethic_fanatic_militarist
+				}
+			}
+		}
+		modifier = {
+			factor = 2
+			owner = { is_machine_empire = yes }
+		}
+		modifier = {
+			factor = 0
+			owner = {
+				OR = {
+					is_nomadic = yes
+					species = { has_trait = trait_psionic }
+					species = { has_trait = trait_latent_psionic }
+				}
+			}
+		}
+	}
+}
+
+# =============================================================================
+# XURACORP GAS EXTRACTION TERMINAL
+# XuraCorp's corporate philosophy is simple: extract more, refine better,
+# sell at a premium. Their field engineers optimize extraction rigs with
+# proprietary techniques that measurably increase exotic gas yields.
+#
+# An anchored XuraCorp terminal represents a formal partnership — they send
+# specialists, you provide the infrastructure. Unlocked by accepting
+# The Traders' Compact (em_enclave.1).
+# =============================================================================
+em_xuracorp_gas_terminal = {
+	icon = "GFX_spaceport_module_resource_silo"
+	construction_days = 360
+
+	potential = {
+		exists = owner
+		is_normal_starbase = yes
+		owner = {
+			is_homicidal = no
+			is_gestalt = no
+			has_country_flag = em_xuracorp_partnership
+		}
+		solar_system = {
+			any_fleet_in_system = {
+				owner? = {
+					has_country_flag = trader_enclave_country_1  # XuraCorp
+				}
+			}
+		}
+	}
+
+	possible = {
+		custom_tooltip = {
+			fail_text = "em_requires_xuracorp_enclave"
+			solar_system = {
+				has_star_flag = enclave
+				any_fleet_in_system = {
+					owner? = {
+						has_country_flag = trader_enclave_country_1
+					}
+				}
+			}
+		}
+	}
+
+	resources = {
+		category = starbase_buildings
+		cost = {
+			energy = 500
+			alloys = 100
+		}
+		upkeep = {
+			energy = 3
+		}
+		produces = {
+			exotic_gases = 2
+		}
+	}
+
+	# XuraCorp engineers optimize every rig in the system
+	station_modifier = {
+		starbase_collected_system_exotic_gases_add = 2
+	}
+
+	# Empire-wide: XuraCorp extraction doctrine improves all gas operations
+	country_modifier = {
+		planet_jobs_exotic_gases_produces_mult = 0.10
+	}
+
+	ai_weight = {
+		weight = 100
+		modifier = {
+			factor = 0
+			owner = { is_nomadic = yes }
+		}
+	}
+}
+
+# =============================================================================
+# RIGGAN MOTE PROCESSING HUB
+# The Riggan Commerce Exchange has wandered the stars longer than most
+# empires have existed. Their knowledge of volatile mote extraction is
+# unmatched — they know where deposits concentrate, how to harvest without
+# destabilizing the substrate, and which refinement processes maximize yield.
+#
+# A Riggan Hub anchored at your starbase means their senior extractors are
+# on retainer. Unlocked by accepting The Traders' Compact (em_enclave.1).
+# =============================================================================
+em_riggan_mote_hub = {
+	icon = "GFX_spaceport_module_resource_silo"
+	construction_days = 360
+
+	potential = {
+		exists = owner
+		is_normal_starbase = yes
+		owner = {
+			is_homicidal = no
+			is_gestalt = no
+			has_country_flag = em_riggan_partnership
+		}
+		solar_system = {
+			any_fleet_in_system = {
+				owner? = {
+					has_country_flag = trader_enclave_country_2  # Riggan Commerce Exchange
+				}
+			}
+		}
+	}
+
+	possible = {
+		custom_tooltip = {
+			fail_text = "em_requires_riggan_enclave"
+			solar_system = {
+				has_star_flag = enclave
+				any_fleet_in_system = {
+					owner? = {
+						has_country_flag = trader_enclave_country_2
+					}
+				}
+			}
+		}
+	}
+
+	resources = {
+		category = starbase_buildings
+		cost = {
+			energy = 500
+			alloys = 100
+		}
+		upkeep = {
+			energy = 3
+		}
+		produces = {
+			volatile_motes = 2
+		}
+	}
+
+	# Riggan extraction rigs improve local mote yield
+	station_modifier = {
+		starbase_collected_system_volatile_motes_add = 2
+	}
+
+	# Riggan doctrine: efficient harvest across all imperial mote operations
+	country_modifier = {
+		planet_jobs_volatile_motes_produces_mult = 0.10
+	}
+
+	ai_weight = {
+		weight = 100
+		modifier = {
+			factor = 0
+			owner = { is_nomadic = yes }
+		}
+	}
+}
+
+# =============================================================================
+# MUUTAGAN CRYSTAL ATELIER
+# The Muutagan Merchant Guild approaches rare crystals not as a commodity
+# but as an art form. Their lapidaries spend years learning to read crystal
+# lattice structures, identifying stress planes that unlock hidden resonance
+# frequencies — frequencies that ordinary extraction leaves dormant.
+#
+# An Atelier at your starbase is a mark of prestige as much as productivity.
+# The Muutagans choose their partners; they do not simply take clients.
+# =============================================================================
+em_muutagan_crystal_atelier = {
+	icon = "GFX_spaceport_module_resource_silo"
+	construction_days = 360
+
+	potential = {
+		exists = owner
+		is_normal_starbase = yes
+		owner = {
+			is_homicidal = no
+			is_gestalt = no
+			has_country_flag = em_muutagan_partnership
+		}
+		solar_system = {
+			any_fleet_in_system = {
+				owner? = {
+					has_country_flag = trader_enclave_country_3  # Muutagan Merchant Guild
+				}
+			}
+		}
+	}
+
+	possible = {
+		custom_tooltip = {
+			fail_text = "em_requires_muutagan_enclave"
+			solar_system = {
+				has_star_flag = enclave
+				any_fleet_in_system = {
+					owner? = {
+						has_country_flag = trader_enclave_country_3
+					}
+				}
+			}
+		}
+	}
+
+	resources = {
+		category = starbase_buildings
+		cost = {
+			energy = 500
+			alloys = 100
+		}
+		upkeep = {
+			energy = 3
+		}
+		produces = {
+			rare_crystals = 2
+		}
+	}
+
+	# Muutagan lapidaries draw resonance from the local crystal fields
+	station_modifier = {
+		starbase_collected_system_rare_crystals_add = 2
+	}
+
+	# Atelier training: Muutagan technique improves all imperial crystal extraction
+	country_modifier = {
+		planet_jobs_rare_crystals_produces_mult = 0.10
+	}
+
+	ai_weight = {
+		weight = 100
+		modifier = {
+			factor = 0
+			owner = { is_nomadic = yes }
+		}
+	}
+}
