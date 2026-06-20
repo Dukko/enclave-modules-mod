@@ -21,7 +21,7 @@
 # Spiritualist empires find their citizens moved by proximity to the Shroud.
 # =============================================================================
 em_shroud_conduit = {
-	icon = "GFX_spaceport_module_dimensional_shrine"
+	icon = "GFX_em_shroudwalker_icon"
 	construction_days = 360
 
 	potential = {
@@ -32,28 +32,16 @@ em_shroud_conduit = {
 			# Set on the player's country when they first engage with the Shroudwalker Enclave
 			has_country_flag = shroudwalker_enclave_diplomacy_engaged
 		}
-		# Must be in a Shroudwalker system with their fleet present
-		solar_system = {
-			any_fleet_in_system = {
-				owner? = {
-					# This country flag is set on the Shroudwalker enclave country itself
-					has_country_flag = shroudwalker_enclave_country
-				}
-			}
-		}
 	}
 
 	possible = {
 		custom_tooltip = {
-			fail_text = "em_requires_shroudwalker_opinion"
-			solar_system = {
-				any_fleet_in_system = {
-					owner? = {
-						has_country_flag = shroudwalker_enclave_country
-						opinion = {
-							who = root.owner
-							value >= 75
-						}
+			fail_text = "em_already_built"
+			owner = {
+				NOT = {
+					any_owned_starbase = {
+						NOT = { is_same_value = root }
+						has_starbase_building = em_shroud_conduit
 					}
 				}
 			}
@@ -217,7 +205,7 @@ em_shroud_conduit = {
 # Cannot be built by empires with psionic founder species.
 # =============================================================================
 em_warden_vigil = {
-	icon = "GFX_spaceport_module_detecton_array"
+	icon = "GFX_em_mindwarden_icon"
 	construction_days = 360
 
 	potential = {
@@ -225,33 +213,23 @@ em_warden_vigil = {
 		is_normal_starbase = yes
 		owner = {
 			is_homicidal = no
+			has_country_flag = em_mindwarden_partnership
 			# Psionic empires are rejected by the Mindwardens entirely
 			species = {
 				NOT = { has_trait = trait_psionic }
 				NOT = { has_trait = trait_latent_psionic }
 			}
 		}
-		# Mindwardens have no "diplomacy engaged" player flag — gate on fleet presence directly
-		solar_system = {
-			any_fleet_in_system = {
-				owner? = {
-					is_mercenary_mindwarden_enclave = yes
-				}
-			}
-		}
 	}
 
 	possible = {
 		custom_tooltip = {
-			fail_text = "em_requires_mindwarden_opinion"
-			solar_system = {
-				any_fleet_in_system = {
-					owner? = {
-						is_mercenary_mindwarden_enclave = yes
-						opinion = {
-							who = root.owner
-							value >= 75
-						}
+			fail_text = "em_already_built"
+			owner = {
+				NOT = {
+					any_owned_starbase = {
+						NOT = { is_same_value = root }
+						has_starbase_building = em_warden_vigil
 					}
 				}
 			}
@@ -366,7 +344,7 @@ em_warden_vigil = {
 # The Traders' Compact (em_enclave.1).
 # =============================================================================
 em_xuracorp_gas_terminal = {
-	icon = "GFX_spaceport_module_resource_silo"
+	icon = "GFX_em_xuracorp_icon"
 	construction_days = 360
 
 	potential = {
@@ -377,23 +355,16 @@ em_xuracorp_gas_terminal = {
 			is_gestalt = no
 			has_country_flag = em_xuracorp_partnership
 		}
-		solar_system = {
-			any_fleet_in_system = {
-				owner? = {
-					has_country_flag = trader_enclave_country_1  # XuraCorp
-				}
-			}
-		}
 	}
 
 	possible = {
 		custom_tooltip = {
-			fail_text = "em_requires_xuracorp_enclave"
-			solar_system = {
-				has_star_flag = enclave
-				any_fleet_in_system = {
-					owner? = {
-						has_country_flag = trader_enclave_country_1
+			fail_text = "em_already_built"
+			owner = {
+				NOT = {
+					any_owned_starbase = {
+						NOT = { is_same_value = root }
+						has_starbase_building = em_xuracorp_gas_terminal
 					}
 				}
 			}
@@ -444,7 +415,7 @@ em_xuracorp_gas_terminal = {
 # on retainer. Unlocked by accepting The Traders' Compact (em_enclave.1).
 # =============================================================================
 em_riggan_mote_hub = {
-	icon = "GFX_spaceport_module_resource_silo"
+	icon = "GFX_em_riggan_icon"
 	construction_days = 360
 
 	potential = {
@@ -455,23 +426,16 @@ em_riggan_mote_hub = {
 			is_gestalt = no
 			has_country_flag = em_riggan_partnership
 		}
-		solar_system = {
-			any_fleet_in_system = {
-				owner? = {
-					has_country_flag = trader_enclave_country_2  # Riggan Commerce Exchange
-				}
-			}
-		}
 	}
 
 	possible = {
 		custom_tooltip = {
-			fail_text = "em_requires_riggan_enclave"
-			solar_system = {
-				has_star_flag = enclave
-				any_fleet_in_system = {
-					owner? = {
-						has_country_flag = trader_enclave_country_2
+			fail_text = "em_already_built"
+			owner = {
+				NOT = {
+					any_owned_starbase = {
+						NOT = { is_same_value = root }
+						has_starbase_building = em_riggan_mote_hub
 					}
 				}
 			}
@@ -522,7 +486,7 @@ em_riggan_mote_hub = {
 # The Muutagans choose their partners; they do not simply take clients.
 # =============================================================================
 em_muutagan_crystal_atelier = {
-	icon = "GFX_spaceport_module_resource_silo"
+	icon = "GFX_em_muutagan_icon"
 	construction_days = 360
 
 	potential = {
@@ -533,23 +497,16 @@ em_muutagan_crystal_atelier = {
 			is_gestalt = no
 			has_country_flag = em_muutagan_partnership
 		}
-		solar_system = {
-			any_fleet_in_system = {
-				owner? = {
-					has_country_flag = trader_enclave_country_3  # Muutagan Merchant Guild
-				}
-			}
-		}
 	}
 
 	possible = {
 		custom_tooltip = {
-			fail_text = "em_requires_muutagan_enclave"
-			solar_system = {
-				has_star_flag = enclave
-				any_fleet_in_system = {
-					owner? = {
-						has_country_flag = trader_enclave_country_3
+			fail_text = "em_already_built"
+			owner = {
+				NOT = {
+					any_owned_starbase = {
+						NOT = { is_same_value = root }
+						has_starbase_building = em_muutagan_crystal_atelier
 					}
 				}
 			}

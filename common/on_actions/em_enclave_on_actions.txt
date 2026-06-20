@@ -2,9 +2,14 @@
 
 on_five_year_pulse_country = {
 	events = {
-		em_enclave.10	# The Traders' Compact (all three enclaves — takes priority)
+		em_enclave.20	# Grand Commercial Network (all four: traders + Numistic — takes priority)
+		em_enclave.10	# The Traders' Compact (all three trader enclaves — takes priority over individuals)
 		em_enclave.1	# XuraCorp proposal (individual)
 		em_enclave.2	# Riggan proposal (individual)
 		em_enclave.3	# Muutagan proposal (individual)
+		em_enclave.4	# Curator proposal
+		em_enclave.5	# Artisan Troubadour proposal
+		em_enclave.6	# Numistic Order proposal
+		em_enclave.7	# Mindwarden proposal
 	}
 }

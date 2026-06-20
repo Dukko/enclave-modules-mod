@@ -1,4 +1,4 @@
-l_english:
+﻿l_english:
 
  # =============================================================================
  # SHROUD CONDUIT — Starbase Building (Traditional Empires)
@@ -16,12 +16,14 @@ l_english:
  # SHROUD COMMUNION CHAMBER — Waystation Module (Nomadic Empires)
  # =============================================================================
  waystation_shroud_communion:0 "Shroud Communion Chamber"
+ sm_waystation_shroud_communion:0 "Shroud Communion Chamber"
  waystation_shroud_communion_desc:0 "Built for wanderers, not settlers. The Shroudwalkers have found that nomadic empires encounter the Shroud differently — unburdened by accumulated expectation, each system reveals a new aspect. Where the anchored §YConduit§! builds depth, the Communion Chamber builds breadth, sharing insights across the wayline network.\n\n§YPsionic nomads§! commune most directly, gaining enhanced unity, society research, and Zro with the right technology.\n\n§YNon-psionic nomads§! observe with a scholar's precision, gaining physics and society research from each passing encounter.\n\nNetwork effects: reduced tradition costs and improved research sharing across all waystations in the network."
 
  # =============================================================================
  # WARDEN'S MONITORING POST — Waystation Module (Nomadic Empires)
  # =============================================================================
  waystation_warden_monitoring_post:0 "Warden's Monitoring Post"
+ sm_waystation_warden_monitoring_post:0 "Warden's Monitoring Post"
  waystation_warden_monitoring_post_desc:0 "The Mindwardens have found nomadic empires to be invaluable allies — their waystations extend monitoring coverage into reaches no fixed Vigil can watch. This post carries Mindwarden detection equipment and transmits intelligence across the wayline.\n\nUnlike the fortified §YVigil§!, the Monitoring Post is a network node, not a fortress. It trades structural permanence for reach.\n\n§YMilitarist nomads§! integrate Warden combat doctrine, strengthening their forces.\n\n§YAcademic nomads§! study psionic suppression technology in transit, gaining physics research.\n\n§YMachine empires§! receive enhanced detection and additional logistical support — the Mindwardens trust machine logic above all others.\n\nNetwork effects: reduced ship upkeep and improved spy network growth across all waystations."
 
  # =============================================================================
@@ -78,29 +80,120 @@ l_english:
  # XURACORP GAS CACHE — Waystation Module (Nomadic Empires)
  # =============================================================================
  waystation_xuracorp_gas_cache:0 "XuraCorp Gas Cache"
+ sm_waystation_xuracorp_gas_cache:0 "XuraCorp Gas Cache"
  waystation_xuracorp_gas_cache_desc:0 "Portable XuraCorp extraction hardware, compact enough for a waystation but effective enough to meaningfully improve exotic gas operations. Corporate extraction doctrine propagates across the wayline — XuraCorp knows how to scale.\n\nMore mobile but less intensive than a fixed §YExtraction Terminal§!. Unlocked by the §HXuraCorp§! partnership event."
 
  # =============================================================================
  # RIGGAN MOTE DEPOT — Waystation Module (Nomadic Empires)
  # =============================================================================
  waystation_riggan_mote_depot:0 "Riggan Mote Depot"
+ sm_waystation_riggan_mote_depot:0 "Riggan Mote Depot"
  waystation_riggan_mote_depot_desc:0 "The Riggans have been moving volatile motes across the stars long enough to have solved every containment problem twice. Their depot uses stabilized transit chambers and predictive routing to keep mote operations efficient even as the waystation moves.\n\nRiggan logistics expertise propagates across the wayline, improving mote yields at every site in the network. Unlocked by the §HRiggan Commerce Exchange§! partnership event."
 
  # =============================================================================
  # MUUTAGAN CRYSTAL EXCHANGE — Waystation Module (Nomadic Empires)
  # =============================================================================
  waystation_muutagan_crystal_exchange:0 "Muutagan Crystal Exchange"
+ sm_waystation_muutagan_crystal_exchange:0 "Muutagan Crystal Exchange"
  waystation_muutagan_crystal_exchange_desc:0 "Part market, part school — Muutagan lapidaries share resonance-reading techniques with your crews at each system the waystation visits, unlocking yields that standard extraction misses. Their knowledge propagates across the wayline to every extraction site in the network.\n\nUnlocked by the §HMuutagan Merchant Guild§! partnership event."
+
+ # =============================================================================
+ # CURATOR RESEARCH ARCHIVE — Starbase Building (Traditional Empires)
+ # =============================================================================
+ em_curator_archive:0 "Curator Research Archive"
+ em_curator_archive_desc:0 "A permanent Curator installation staffed by archivists and field analysts. Their methodology — meticulous, skeptical, hungry for anomaly — improves your scientists' baseline work across the empire.\n\n§YAll empires§! benefit from improved physics and society research speed.\n\n§YGestalt empires§! receive additional research output at this station — the Curators find collective consciousness to be uniquely rich data.\n\nUnlocked by the §HCurator Archive§! partnership event."
+
+ # =============================================================================
+ # ARTISAN GRAND STAGE — Starbase Building (Traditional Empires)
+ # =============================================================================
+ em_artisan_stage:0 "Artisan Grand Stage"
+ em_artisan_stage_desc:0 "A permanent Troubadour performance installation. The Artisans have a gift for finding what makes a species feel alive — and their presence raises spirits, eases tensions, and galvanizes the collective will.\n\n§YBiological empires§! gain happiness and amenities empire-wide.\n\n§YGestalt empires§! gain unity from jobs instead — the Stage provides operational pattern variation that the collective finds... clarifying.\n\n§YSpiritualist empires§! find Troubadour art resonates deeply with their traditions, adding unity and tradition cost reduction.\n\nUnlocked by the §HArtisan Troubadours§! partnership event."
+
+ # =============================================================================
+ # NUMISTIC CREDIT EXCHANGE — Starbase Building (Traditional Empires)
+ # =============================================================================
+ em_numistic_exchange:0 "Caravaneer Credit Exchange"
+ em_numistic_exchange_desc:0 "The Numistic Order — the Caravaneers' resident financial theologians — don't lend money. They lend credibility. A Credit Exchange at your starbase signals to every factor in the sector that your empire meets a certain standard of financial reliability. The direct output is secondary to what that signal does to your administrative efficiency and market access.\n\nReduces §Yempire sprawl§! and §Ygalactic market fees§! empire-wide. §YMegacorps§! receive additional fee reductions.\n\nRequires §HMegaCorp DLC§! (Caravaneers). Unlocked by the §HCaravaneer§! partnership event."
+
+ # =============================================================================
+ # CURATOR SURVEY TERMINAL — Waystation Module (Nomadic Empires)
+ # =============================================================================
+ waystation_curator_survey_terminal:0 "Curator Survey Terminal"
+ sm_waystation_curator_survey_terminal:0 "Curator Survey Terminal"
+ waystation_curator_survey_terminal_desc:0 "A Curator field office for wandering minds. Your sensor data, exchanged for their analytical frameworks. Insights from each system visited propagate across the wayline — the Curators find nomadic coverage invaluable.\n\nImproves §Yphysics and society research§! at each station and §Yanom­aly discovery§! chance. Network effects improve research speed empire-wide.\n\nUnlocked by the §HCurators§! partnership event."
+
+ # =============================================================================
+ # ARTISAN TOURING STAGE — Waystation Module (Nomadic Empires)
+ # =============================================================================
+ waystation_artisan_touring_stage:0 "Artisan Touring Stage"
+ sm_waystation_artisan_touring_stage:0 "Artisan Touring Stage"
+ waystation_artisan_touring_stage_desc:0 "The Troubadours were nomadic long before your empire was. A Touring Stage means their performers travel with you — adapting their repertoire to each system, each crew, each quiet moment between jumps.\n\nGenerates §Yunity§! and §Yamenities§! at each station. Network effects improve pop happiness and amenities empire-wide.\n\n§YSpiritualist nomads§! and §YJoyous Enlightenment§! paths receive amplified benefits.\n\nUnlocked by the §HArtisan Troubadours§! partnership event."
+
+ # =============================================================================
+ # NUMISTIC WAYPOINT EXCHANGE — Waystation Module (Nomadic Empires)
+ # =============================================================================
+ waystation_numistic_waypoint_exchange:0 "Caravaneer Waypoint Exchange"
+ sm_waystation_numistic_waypoint_exchange:0 "Caravaneer Waypoint Exchange"
+ waystation_numistic_waypoint_exchange_desc:0 "The Numistic Order has long recognized that nomadic empires create a different kind of financial infrastructure. A Waypoint Exchange doesn't hold deposits — it moves them. Order brokers facilitate short-term credit instruments at each system your waystation visits.\n\nImproves §Ytrade§! collection at this station. Network effects reduce ship upkeep and empire sprawl across all waystations.\n\nRequires §HMegaCorp DLC§! (Caravaneers). Unlocked by the §HCaravaneer§! partnership event."
+
+ # =============================================================================
+ # PARTNERSHIP EVENTS
+ # =============================================================================
+
+ # em_enclave.4 — Curators
+ em_enclave.4.name:0 "An Archivist's Proposition"
+ em_enclave.4.desc:0 "The individual who contacts you introduces themselves as a Senior Field Liaison of the §HCurator§! Order — a title that, they explain unprompted, carries specific obligations regarding factual precision in all communications.\n\nThey would like to propose an institutional relationship. Curator archivists embedded in your scientific establishments, sharing methodology developed over centuries of continuous documentation. In exchange, your survey data feeds their archives.\n\n\"We have reviewed your anomaly records,\" they add, placing a data chip on the table. \"There is significant room for improvement.\""
+ em_enclave.4.a:0 "We accept the arrangement. [750 Energy]"
+ em_enclave.4.b:0 "The timing is not right. Perhaps in a decade."
+ em_enclave.4.c:0 "We prefer to conduct our own research."
+
+ # em_enclave.5 — Artisan Troubadours
+ em_enclave.5.name:0 "The Troubadours Arrive"
+ em_enclave.5.desc:0 "They didn't send a message. They sent a performance.\n\nA small delegation of §HArtisan Troubadours§! arrived at your capital unannounced and proceeded to stage a forty-minute theatrical piece in the lobby of your admiralty headquarters. The piece was, by all accounts, breathtaking — a meditation on the loneliness of expansion, the weight of empire, the small dignities that persist in the gap between stars.\n\nAfterward, one of them handed your security chief a formal proposal for an ongoing artistic partnership.\n\n\"We thought a demonstration would serve better than a letter,\" she said."
+ em_enclave.5.a:0 "An unconventional approach. We accept. [500 Energy]"
+ em_enclave.5.b:0 "We are not ready for this commitment. Not yet."
+ em_enclave.5.c:0 "We are not interested in their art."
+
+ # em_enclave.6 — Numistic Order
+ em_enclave.6.name:0 "The Order Makes an Introduction"
+ em_enclave.6.desc:0 "A representative of the §HNumistic Order§! arrives with an air of profound institutional gravity. They present credentials, allow a moment for verification, and then get to the point.\n\nThe Order would like to establish a formal financial relationship. A §HCredit Exchange§! at one of your starbases. Their brokers, their instruments, their centuries of accumulated credibility — placed at the disposal of your trade and administrative networks.\n\n\"The returns are modest,\" they acknowledge. \"The signal is not. Every factor in this sector will know you bank with us. That is, historically, worth rather more than the interest.\""
+ em_enclave.6.a:0 "We understand the value of a good signal. [500 Energy, 50 Alloys]"
+ em_enclave.6.b:0 "We need to review our financial arrangements first."
+ em_enclave.6.c:0 "We manage our own finances."
+
+ # em_enclave.7 — Mindwardens
+ em_enclave.7.name:0 "The Wardens Make Contact"
+ em_enclave.7.desc:0 "The communication arrives without preamble.\n\nA representative of the §HMindwarden Enclave§! identifies themselves, states that they have been monitoring your waystation network for some time, and notes — without apparent concern for how this lands — that the coverage you achieve is \"operationally significant.\"\n\nThey would like to formalize that significance. Mindwarden detection equipment installed at your waystations, integrated into their broader intelligence architecture. Your network extends their reach into regions no fixed §YVigil§! can watch; their expertise extends your awareness of what moves through them.\n\n\"You have already demonstrated the value of mobile surveillance,\" the representative says. \"We are simply proposing you do it better.\""
+ em_enclave.7.a:0 "A practical arrangement. We accept. [100 Alloys]"
+ em_enclave.7.b:0 "We are not ready to make this commitment."
+ em_enclave.7.c:0 "We have no interest in their surveillance network."
+
+ # em_enclave.20 — The Grand Commercial Network
+ em_enclave.20.name:0 "The Grand Commercial Network"
+ em_enclave.20.desc:0 "They have coordinated. All four of them.\n\nRepresentatives of §HXuraCorp§!, the §HRiggan Commerce Exchange§!, the §HMuutagan Merchant Guild§!, and the §HNumistic Order§! have arrived together to make a single, unified proposal.\n\n\"We have been comparing our relationship with your empire,\" the Numistic liaison begins, \"and we have reached an agreement among ourselves that the arrangement is ready to formalize.\"\n\nWhat they are proposing is the §HGrand Commercial Network§!: a unified commercial framework integrating all four operations. The Numistic Order provides the financial architecture; the three traders provide the commodity flow; your empire provides the territory and the ambition.\n\n\"You have, in effect, already built this,\" the Riggan representative adds. \"We are simply proposing that it know its own name.\""
+ em_enclave.20.a:0 "Then let it be named. We accept."
+ em_enclave.20.b:0 "The timing is not ideal. We will revisit this."
+ em_enclave.20.c:0 "We prefer to keep these relationships separate."
+
+ # =============================================================================
+ # STATIC MODIFIER
+ # =============================================================================
+ em_grand_commercial_network_modifier:0 "Grand Commercial Network"
+ em_grand_commercial_network_modifier_desc:0 "This empire's commercial enclave relationships have been formally integrated into a unified economic framework — the §HGrand Commercial Network§!. The combined infrastructure of §HXuraCorp§!, the §HRiggan Commerce Exchange§!, the §HMuutagan Merchant Guild§!, and the §HNumistic Order§! reduces market friction, improves trade value, and streamlines administrative overhead across the empire."
 
  # =============================================================================
  # TOOLTIP / FAIL TEXT KEYS
  # =============================================================================
  em_requires_shroudwalker_opinion:0 "Requires §Y75§! Opinion with the §HShroudwalker Enclave§!"
  em_requires_shroudwalker_opinion_60:0 "Requires §Y60§! Opinion with the §HShroudwalker Enclave§!"
- em_requires_mindwarden_opinion:0 "Requires §Y75§! Opinion with the §HMindwarden Enclave§!"
- em_requires_mindwarden_opinion_60:0 "Requires §Y60§! Opinion with the §HMindwarden Enclave§!"
  em_requires_shroudwalker_enclave:0 "Requires the §HShroudwalker Enclave§! to be present in this system"
- em_requires_mindwarden_enclave:0 "Requires the §HMindwarden Enclave§! to be present in this system"
  em_requires_xuracorp_enclave:0 "Requires §HXuraCorp§! to be present in this system"
  em_requires_riggan_enclave:0 "Requires the §HRiggan Commerce Exchange§! to be present in this system"
  em_requires_muutagan_enclave:0 "Requires the §HMuutagan Merchant Guild§! to be present in this system"
+ em_requires_curator_enclave:0 "Requires the §HCurators§! to be present in this system"
+ em_requires_curator_opinion_60:0 "Requires §Y60§! Opinion with the §HCurators§!"
+ em_requires_artisan_enclave:0 "Requires the §HArtisan Troubadours§! to be present in this system"
+ em_requires_artisan_opinion_60:0 "Requires §Y60§! Opinion with the §HArtisan Troubadours§!"
+ em_requires_caravaneer_enclave:0 "Requires the §HCaravaneers§! home station to be present in this system"
+ em_requires_numistic_opinion_60:0 "Requires §Y60§! Opinion with the §HCaravaneers§!"
+ em_already_built:0 "Already built on another starbase (limit: §Y1 per empire§!)"

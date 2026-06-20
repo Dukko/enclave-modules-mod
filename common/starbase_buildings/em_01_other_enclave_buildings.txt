@@ -1,0 +1,312 @@
+# =============================================================================
+# ENCLAVE MODULES MOD - Other Enclave Buildings
+# Curator Research Archive, Artisan Grand Stage, Caravaneer Credit Exchange
+# For traditional (non-nomadic) empires only.
+#
+# FLAG NOTES (verified against vanilla files):
+#   curator_enclave_country   - country flag on the Curator enclave            ✓
+#   artist_enclave_country    - country flag on the Artisan Troubadour enclave  ✓ (NOT artisan_)
+#   caravaneer_home_country   - country flag on the Caravaneer home station     ✓
+#   em_curator_partnership    - set by em_enclave.4, unlocks Archive
+#   em_artisan_partnership    - set by em_enclave.5, unlocks Grand Stage
+#   em_numistic_partnership   - set by em_enclave.6, unlocks Credit Exchange
+# =============================================================================
+
+# =============================================================================
+# CURATOR RESEARCH ARCHIVE
+# The Curators don't just catalogue history — they teach methodology.
+# An Archive aboard your starbase means a Curator archivist is on retainer:
+# coaching your scientists in pattern recognition, anomaly interpretation,
+# and the discipline of not assuming you understand what you're looking at.
+#
+# Available to all non-homicidal empires, including gestalts. The Curators
+# find collective minds fascinating subjects, and the interest flows both ways.
+#
+# Psionic empires occasionally unsettle the archivists — the Curators prefer
+# documentation to revelation — but access is not denied.
+# =============================================================================
+em_curator_archive = {
+	icon = "GFX_em_curator_icon"
+	construction_days = 360
+
+	potential = {
+		exists = owner
+		is_normal_starbase = yes
+		owner = {
+			is_homicidal = no
+			has_country_flag = em_curator_partnership
+		}
+	}
+
+	possible = {
+		custom_tooltip = {
+			fail_text = "em_already_built"
+			owner = {
+				NOT = {
+					any_owned_starbase = {
+						NOT = { is_same_value = root }
+						has_starbase_building = em_curator_archive
+					}
+				}
+			}
+		}
+	}
+
+	resources = {
+		category = starbase_buildings
+		cost = {
+			energy = 750
+		}
+		upkeep = {
+			energy = 3
+		}
+		# Base: Curator archivists review sensor logs and improve anomaly yields
+		produces = {
+			physics_research = 5
+			society_research = 5
+		}
+		# Gestalt bonus: collective data streams are uniquely valuable to Curator databases
+		produces = {
+			trigger = {
+				exists = owner
+				owner = { is_gestalt = yes }
+			}
+			physics_research = 3
+			engineering_research = 3
+		}
+	}
+
+	# Anomaly discovery rate improves near the Archive
+	station_modifier = {
+		ship_anomaly_generation_chance_mult = 0.10
+	}
+
+	# Empire-wide: Curator methodology raises the baseline of all research
+	country_modifier = {
+		country_physics_tech_research_speed = 0.05
+		country_society_tech_research_speed = 0.05
+	}
+
+	ai_weight = {
+		weight = 100
+		modifier = {
+			factor = 3
+			owner = {
+				OR = {
+					has_ethic = ethic_materialist
+					has_ethic = ethic_fanatic_materialist
+				}
+			}
+		}
+		modifier = {
+			factor = 2
+			owner = { is_gestalt = yes }
+		}
+		modifier = {
+			factor = 0
+			owner = { is_nomadic = yes }
+		}
+	}
+}
+
+# =============================================================================
+# ARTISAN GRAND STAGE
+# The Troubadours have a gift for finding what makes a species feel alive.
+# Whether they perform for biological crews or recite recursive poetry for
+# machine intelligences, something loosens in the empire's collective psyche
+# and the work gets easier.
+#
+# Available to all non-homicidal empires. Gestalts cannot benefit from
+# amenities or biological happiness — but unity and operational cohesion
+# are universal currencies.
+# =============================================================================
+em_artisan_stage = {
+	icon = "GFX_em_artisan_icon"
+	construction_days = 360
+
+	potential = {
+		exists = owner
+		is_normal_starbase = yes
+		owner = {
+			is_homicidal = no
+			has_country_flag = em_artisan_partnership
+		}
+	}
+
+	possible = {
+		custom_tooltip = {
+			fail_text = "em_already_built"
+			owner = {
+				NOT = {
+					any_owned_starbase = {
+						NOT = { is_same_value = root }
+						has_starbase_building = em_artisan_stage
+					}
+				}
+			}
+		}
+	}
+
+	resources = {
+		category = starbase_buildings
+		cost = {
+			energy = 500
+		}
+		upkeep = {
+			energy = 3
+		}
+		# Base: unity for all empire types
+		produces = {
+			unity = 5
+		}
+	}
+
+	# Consumer goods represent the amenity goods the Troubadours bring to crews
+	station_modifier = {
+		starbase_collected_system_consumer_goods_add = 2
+	}
+
+	# Non-gestalt: happiness and amenities empire-wide from Troubadour performances
+	triggered_country_modifier = {
+		potential = {
+			owner = { NOT = { is_gestalt = yes } }
+		}
+		pop_happiness = 0.03
+		planet_amenities_mult = 0.05
+	}
+
+	# Gestalt: the Stage provides cultural archiving and pattern variation
+	# that improves operational diversity — unity replaces amenities/happiness
+	triggered_country_modifier = {
+		potential = {
+			owner = { is_gestalt = yes }
+		}
+		unity_from_jobs_mult = 0.10
+	}
+
+	# Spiritualist bonus: Troubadour art resonates deeply with faith traditions
+	triggered_country_modifier = {
+		potential = {
+			owner = {
+				OR = {
+					has_ethic = ethic_spiritualist
+					has_ethic = ethic_fanatic_spiritualist
+				}
+			}
+		}
+		unity_from_jobs_mult = 0.05
+		tradition_cost_mult = -0.03
+	}
+
+	ai_weight = {
+		weight = 100
+		modifier = {
+			factor = 2
+			owner = {
+				OR = {
+					has_ethic = ethic_spiritualist
+					has_ethic = ethic_fanatic_spiritualist
+				}
+			}
+		}
+		modifier = {
+			factor = 0
+			owner = { is_nomadic = yes }
+		}
+	}
+}
+
+# =============================================================================
+# CARAVANEER CREDIT EXCHANGE
+# The Numistic Order — the Caravaneers' resident financial theologians —
+# don't lend money. They lend credibility. A Credit Exchange aboard your
+# starbase signals to every trader, broker, and factor in the sector that
+# your empire meets a certain standard of financial reliability.
+# That signal is worth more than the direct output.
+#
+# Unavailable to gestalts — the Order requires an economy with market institutions.
+# Megacorps are their natural partners.
+# =============================================================================
+em_numistic_exchange = {
+	icon = "GFX_em_numistic_icon"
+	construction_days = 360
+
+	potential = {
+		exists = owner
+		is_normal_starbase = yes
+		owner = {
+			is_homicidal = no
+			is_gestalt = no
+			has_country_flag = em_numistic_partnership
+		}
+	}
+
+	possible = {
+		custom_tooltip = {
+			fail_text = "em_already_built"
+			owner = {
+				NOT = {
+					any_owned_starbase = {
+						NOT = { is_same_value = root }
+						has_starbase_building = em_numistic_exchange
+					}
+				}
+			}
+		}
+	}
+
+	resources = {
+		category = starbase_buildings
+		cost = {
+			energy = 500
+			alloys = 50
+		}
+		upkeep = {
+			energy = 3
+		}
+		# Direct energy income: Numistic financial instruments generate returns
+		produces = {
+			energy = 5
+		}
+	}
+
+	# Station: the Exchange boosts trade collection in the system
+	station_modifier = {
+		starbase_collected_system_trade_add = 5
+	}
+
+	# Empire-wide: Numistic financial networks reduce administrative overhead
+	# and improve galactic market access
+	country_modifier = {
+		empire_size_mult = -0.05
+		country_trade_fee = -0.05
+	}
+
+	# Megacorp bonus: corporate financial instruments are a natural fit
+	triggered_country_modifier = {
+		potential = {
+			owner = {
+				has_authority = auth_corporate
+			}
+		}
+		country_trade_fee = -0.05
+	}
+
+	ai_weight = {
+		weight = 100
+		modifier = {
+			factor = 3
+			owner = {
+				has_authority = auth_corporate
+			}
+		}
+		modifier = {
+			factor = 0
+			owner = { is_nomadic = yes }
+		}
+		modifier = {
+			factor = 0
+			owner = { is_gestalt = yes }
+		}
+	}
+}

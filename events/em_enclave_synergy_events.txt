@@ -1,0 +1,307 @@
+####################################
+# ENCLAVE MODULES MOD — Synergy Events
+#
+# em_enclave.4  — Curator Proposal
+# em_enclave.5  — Artisan Troubadour Proposal
+# em_enclave.6  — Numistic Order Proposal
+# em_enclave.7  — Mindwarden Proposal
+# em_enclave.20 — The Grand Commercial Network (all three traders + Numistic)
+#
+# Events 4/5/6 fire on on_five_year_pulse_country.
+# Event 20 fires on on_five_year_pulse_country; requires all four partnerships
+# and the MegaCorp DLC. One-time only (blocked by em_grand_commercial_network flag).
+####################################
+
+namespace = em_enclave
+
+# ============================================================================
+# em_enclave.4 — CURATOR PROPOSAL
+# Fires when the Curators have opinion >= 50 and no partnership yet exists.
+# ============================================================================
+country_event = {
+	id = em_enclave.4
+	title = em_enclave.4.name
+	desc = em_enclave.4.desc
+	picture = GFX_evt_grand_archive
+
+	is_triggered_only = yes
+
+	trigger = {
+		is_country_type = default
+		is_homicidal = no
+		NOT = { has_country_flag = em_curator_partnership }
+		NOT = { has_country_flag = em_curator_declined }
+		NOT = { has_country_flag = em_curator_cooldown }
+		any_country = {
+			has_country_flag = curator_enclave_country
+			opinion = { who = root value >= 50 }
+		}
+	}
+
+	# Accept the Archive partnership
+	option = {
+		name = em_enclave.4.a
+		add_resource = { energy = -750 }
+		set_country_flag = em_curator_partnership
+	}
+
+	# Decline for now — 10-year cooldown
+	option = {
+		name = em_enclave.4.b
+		set_timed_country_flag = {
+			flag = em_curator_cooldown
+			days = 3650
+		}
+	}
+
+	# Decline permanently
+	option = {
+		name = em_enclave.4.c
+		set_country_flag = em_curator_declined
+	}
+}
+
+# ============================================================================
+# em_enclave.5 — ARTISAN TROUBADOUR PROPOSAL
+# Fires when the Troubadours have opinion >= 50 and no partnership yet exists.
+# ============================================================================
+country_event = {
+	id = em_enclave.5
+	title = em_enclave.5.name
+	desc = em_enclave.5.desc
+	picture = GFX_evt_mega_art_installation
+
+	is_triggered_only = yes
+
+	trigger = {
+		is_country_type = default
+		is_homicidal = no
+		NOT = { has_country_flag = em_artisan_partnership }
+		NOT = { has_country_flag = em_artisan_declined }
+		NOT = { has_country_flag = em_artisan_cooldown }
+		any_country = {
+			has_country_flag = artist_enclave_country
+			opinion = { who = root value >= 50 }
+		}
+	}
+
+	# Accept the Stage partnership
+	option = {
+		name = em_enclave.5.a
+		add_resource = { energy = -500 }
+		set_country_flag = em_artisan_partnership
+	}
+
+	# Decline for now
+	option = {
+		name = em_enclave.5.b
+		set_timed_country_flag = {
+			flag = em_artisan_cooldown
+			days = 3650
+		}
+	}
+
+	# Decline permanently
+	option = {
+		name = em_enclave.5.c
+		set_country_flag = em_artisan_declined
+	}
+}
+
+# ============================================================================
+# em_enclave.6 — NUMISTIC ORDER PROPOSAL
+# Fires when the Numistic Order has opinion >= 50.
+# Requires MegaCorp DLC (has_dlc = "MegaCorp").
+# ============================================================================
+country_event = {
+	id = em_enclave.6
+	title = em_enclave.6.name
+	desc = em_enclave.6.desc
+	picture = GFX_evt_caravaneers
+
+	is_triggered_only = yes
+
+	trigger = {
+		is_country_type = default
+		is_homicidal = no
+		is_gestalt = no
+		has_dlc = "MegaCorp"
+		NOT = { has_country_flag = em_numistic_partnership }
+		NOT = { has_country_flag = em_numistic_declined }
+		NOT = { has_country_flag = em_numistic_cooldown }
+		any_country = {
+			has_country_flag = caravaneer_home_country
+			opinion = { who = root value >= 50 }
+		}
+	}
+
+	# Accept the Exchange partnership
+	option = {
+		name = em_enclave.6.a
+		add_resource = { energy = -500 alloys = -50 }
+		set_country_flag = em_numistic_partnership
+	}
+
+	# Decline for now
+	option = {
+		name = em_enclave.6.b
+		set_timed_country_flag = {
+			flag = em_numistic_cooldown
+			days = 3650
+		}
+	}
+
+	# Decline permanently
+	option = {
+		name = em_enclave.6.c
+		set_country_flag = em_numistic_declined
+	}
+}
+
+# ============================================================================
+# em_enclave.7 — MINDWARDEN PROPOSAL
+# Fires when a Mindwarden enclave exists and has opinion >= 50.
+# Psionic founder species are excluded (Mindwardens won't partner with them).
+# Sets em_mindwarden_partnership, which unlocks the Warden's Monitoring Post.
+# ============================================================================
+country_event = {
+	id = em_enclave.7
+	title = em_enclave.7.name
+	desc = em_enclave.7.desc
+	picture = GFX_evt_mercenary_enclave
+
+	is_triggered_only = yes
+
+	trigger = {
+		is_country_type = default
+		is_homicidal = no
+		NOT = { has_country_flag = em_mindwarden_partnership }
+		NOT = { has_country_flag = em_mindwarden_declined }
+		NOT = { has_country_flag = em_mindwarden_cooldown }
+		# Psionic empires cannot partner with the Mindwardens
+		NOT = {
+			owner_species = {
+				OR = {
+					has_trait = trait_psionic
+					has_trait = trait_latent_psionic
+				}
+			}
+		}
+		any_country = {
+			is_mercenary_mindwarden_enclave = yes
+			opinion = { who = root value >= 50 }
+		}
+	}
+
+	# Accept — the Mindwardens extend their monitoring network to your waystations
+	option = {
+		name = em_enclave.7.a
+		add_resource = { alloys = -100 }
+		set_country_flag = em_mindwarden_partnership
+	}
+
+	# Decline for now — 10-year cooldown
+	option = {
+		name = em_enclave.7.b
+		set_timed_country_flag = {
+			flag = em_mindwarden_cooldown
+			days = 3650
+		}
+	}
+
+	# Decline permanently
+	option = {
+		name = em_enclave.7.c
+		set_country_flag = em_mindwarden_declined
+	}
+}
+
+# ============================================================================
+# em_enclave.20 — THE GRAND COMMERCIAL NETWORK
+#
+# The apex of enclave commercial integration. Fires once when an empire holds
+# all three Trader Compact partnerships AND the Numistic Order partnership.
+# The four commercial enclaves propose a unified economic framework that
+# integrates their operations empire-wide.
+#
+# Reward: permanent em_grand_commercial_network_modifier + immediate resources.
+# Megacorp empires also receive an additional bonus for their natural alignment
+# with the Network's structure.
+#
+# Requires MegaCorp DLC (Numistic Order). One-time only.
+# ============================================================================
+country_event = {
+	id = em_enclave.20
+	title = em_enclave.20.name
+	desc = em_enclave.20.desc
+	picture = GFX_evt_galactic_market
+
+	is_triggered_only = yes
+
+	trigger = {
+		is_country_type = default
+		is_homicidal = no
+		is_gestalt = no
+		has_dlc = "MegaCorp"
+		# Must have all four partnerships
+		has_country_flag = em_xuracorp_partnership
+		has_country_flag = em_riggan_partnership
+		has_country_flag = em_muutagan_partnership
+		has_country_flag = em_numistic_partnership
+		# Has not already formed the Network, declined permanently, or is in cooldown
+		NOT = { has_country_flag = em_grand_commercial_network }
+		NOT = { has_country_flag = em_grand_commercial_network_declined }
+		NOT = { has_country_flag = em_grand_commercial_network_cooldown }
+	}
+
+	# Accept — form the Grand Commercial Network
+	option = {
+		name = em_enclave.20.a
+		set_country_flag = em_grand_commercial_network
+
+		# Immediate resource windfall from the Network's inaugural operation
+		add_resource = {
+			energy = 1000
+			alloys = 200
+			rare_crystals = 10
+			exotic_gases = 10
+			volatile_motes = 10
+		}
+
+		# Permanent empire-wide modifier
+		add_modifier = {
+			modifier = em_grand_commercial_network_modifier
+			days = -1
+		}
+
+		# Megacorp bonus: the Network's architecture mirrors corporate structure
+		if = {
+			limit = {
+				has_authority = auth_corporate
+			}
+			add_resource = { energy = 500 }
+			add_modifier = {
+				modifier = em_grand_commercial_network_modifier
+				days = -1
+				# Note: in Stellaris, add_modifier with same modifier stacks or is idempotent
+				# depending on the modifier's definition. If it doesn't stack, consider a
+				# separate em_grand_commercial_network_megacorp_modifier for the extra bonus.
+			}
+		}
+	}
+
+	# Decline — but leave the door open (they'll ask again in 10 years)
+	option = {
+		name = em_enclave.20.b
+		set_timed_country_flag = {
+			flag = em_grand_commercial_network_cooldown
+			days = 3650
+		}
+	}
+
+	# Decline permanently — the empire prefers to manage its own commercial affairs
+	option = {
+		name = em_enclave.20.c
+		set_country_flag = em_grand_commercial_network_declined
+	}
+}

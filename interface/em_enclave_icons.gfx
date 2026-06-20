@@ -1,0 +1,43 @@
+spriteTypes = {
+
+	spriteType = {
+		name = "GFX_em_curator_icon"
+		texturefile = "gfx/interface/icons/modules/em/em_curator.dds"
+	}
+
+	spriteType = {
+		name = "GFX_em_artisan_icon"
+		texturefile = "gfx/interface/icons/modules/em/em_artisan.dds"
+	}
+
+	spriteType = {
+		name = "GFX_em_numistic_icon"
+		texturefile = "gfx/interface/icons/modules/em/em_numistic.dds"
+	}
+
+	spriteType = {
+		name = "GFX_em_shroudwalker_icon"
+		texturefile = "gfx/interface/icons/modules/em/em_shroudwalker.dds"
+	}
+
+	spriteType = {
+		name = "GFX_em_mindwarden_icon"
+		texturefile = "gfx/interface/icons/modules/em/em_mindwarden.dds"
+	}
+
+	spriteType = {
+		name = "GFX_em_xuracorp_icon"
+		texturefile = "gfx/interface/icons/modules/em/em_xuracorp.dds"
+	}
+
+	spriteType = {
+		name = "GFX_em_riggan_icon"
+		texturefile = "gfx/interface/icons/modules/em/em_riggan.dds"
+	}
+
+	spriteType = {
+		name = "GFX_em_muutagan_icon"
+		texturefile = "gfx/interface/icons/modules/em/em_muutagan.dds"
+	}
+
+}

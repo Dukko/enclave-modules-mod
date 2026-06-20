@@ -204,7 +204,7 @@ country_event = {
 	id = em_enclave.10
 	title = em_enclave.10.name
 	desc = em_enclave.10.desc
-	picture = GFX_evt_tradedeal
+	picture = GFX_evt_three_sided_deal
 
 	is_triggered_only = yes
 

@@ -1,0 +1,24 @@
+# =============================================================================
+# ENCLAVE MODULES MOD - Static Modifiers
+#
+# Defines persistent country modifiers applied via events.
+# =============================================================================
+
+# =============================================================================
+# GRAND COMMERCIAL NETWORK
+# Applied permanently by em_enclave.20 when an empire holds all three trader
+# enclave partnerships (XuraCorp, Riggan, Muutagan) AND the Numistic Order
+# partnership. Represents the apex of enclave commercial integration.
+# =============================================================================
+em_grand_commercial_network_modifier = {
+	icon = "GFX_modifier_trade_value_add"  # TODO: verify icon key
+
+	country_trade_fee = -0.10
+	country_trade_fee = -0.05
+	empire_size_mult = -0.05
+	ship_upkeep_mult = -0.03
+
+	# Megacorp amplifier: the Network was built in their image
+	# (handled as a separate triggered modifier in the event itself,
+	#  since static_modifiers cannot be conditional)
+}

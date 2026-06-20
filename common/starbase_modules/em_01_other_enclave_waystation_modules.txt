@@ -1,0 +1,416 @@
+# =============================================================================
+# ENCLAVE MODULES MOD - Other Enclave Waystation Modules
+# Nomadic equivalents of the Curator Archive, Artisan Stage, Numistic Exchange.
+#
+# Design philosophy (mirrors the Shroud/Warden nomadic modules):
+#   - Fixed buildings anchor and deepen. Waystation modules are mobile, networked,
+#     and share their benefits across the wayline rather than concentrating them.
+#   - Bonuses are slightly lighter per-station but benefit the whole network.
+#
+# FLAG NOTES (verified against vanilla files):
+#   curator_enclave_country   - country flag on the Curator enclave            ✓
+#   artist_enclave_country    - country flag on the Artisan Troubadour enclave  ✓ (NOT artisan_)
+#   caravaneer_home_country   - country flag on the Caravaneer home station     ✓
+# =============================================================================
+
+# =============================================================================
+# CURATOR SURVEY TERMINAL
+# A Curator field office for wandering minds. The Curators have found nomadic
+# empires make ideal survey partners — their fleets visit systems no fixed
+# archive ever reaches, accumulating observations the Order would pay dearly for.
+# The Terminal formalizes this exchange: your sensor data for their analytical
+# frameworks. Insights propagate across the wayline.
+# =============================================================================
+waystation_curator_survey_terminal = {
+	icon = "GFX_em_curator_icon"
+	section = "SCIENCE_STARBASE_SECTION"
+	construction_days = 180
+	starbase_type = waystation
+	category = sm_enclave_cat
+
+	starbase_limit = {
+		base = 1
+	}
+
+	potential = {
+		exists = owner
+		is_waystation_starbase = yes
+		owner = {
+			is_homicidal = no
+			has_country_flag = em_curator_partnership
+		}
+	}
+
+	possible = {
+		custom_tooltip = {
+			fail_text = "em_already_built"
+			owner = {
+				NOT = {
+					any_owned_starbase = {
+						NOT = { is_same_value = root }
+						has_starbase_module = waystation_curator_survey_terminal
+					}
+				}
+			}
+		}
+	}
+
+	resources = {
+		category = starbase_waystations_modules
+		cost = {
+			alloys = 100
+		}
+		upkeep = {
+			trade = 2
+		}
+	}
+
+	# Base: Curator analysts review local sensor data at each system visited
+	station_modifier = {
+		starbase_collected_system_physics_research_add = 3
+		starbase_collected_system_society_research_add = 3
+	}
+
+	# Anomaly generation improves empire-wide while the Terminal is active
+	empire_modifier = {
+		ship_anomaly_generation_chance_mult = 0.05
+	}
+
+	# Gestalt bonus: the Curators find collective processing uniquely valuable
+	triggered_station_modifier = {
+		potential = {
+			owner? = { is_gestalt = yes }
+		}
+		starbase_collected_system_physics_research_add = 2
+		starbase_collected_system_engineering_research_add = 2
+	}
+
+	# Network: Curator analytical frameworks propagate across the wayline
+	waystation_network_country_modifier = {
+		custom_tooltip = wayline_enclave_effects_tt
+		show_only_custom_tooltip = no
+		country_physics_tech_research_speed = 0.03
+		country_society_tech_research_speed = 0.03
+	}
+
+	# Joyous Enlightenment: a network of surveying minds amplifies every discovery
+	triggered_station_modifier = {
+		potential = {
+			owner? = { has_country_flag = sacred_path_joyous_enlightenment }
+			has_neighboring_waystation = yes
+		}
+		custom_tooltip = blessings_joyous_enlightenment_tt
+		show_only_custom_tooltip = no
+		starbase_collected_system_physics_research_add = 3
+		starbase_collected_system_society_research_add = 3
+	}
+
+	# Middle Path - not a sacred site
+	triggered_station_modifier = {
+		potential = {
+			owner? = { has_country_flag = sacred_path_middle_path }
+			is_sacred_site_waystation = no
+		}
+		custom_tooltip = bonus_middle_path_tt
+		show_only_custom_tooltip = no
+		starbase_collected_system_physics_research_add = 2
+	}
+
+	# Middle Path - sacred site: ancient places hold data the Curators hunger for
+	triggered_station_modifier = {
+		potential = {
+			owner? = { has_country_flag = sacred_path_middle_path }
+			is_sacred_site_waystation = yes
+		}
+		custom_tooltip = bonus_sacred_site_tt
+		show_only_custom_tooltip = no
+		starbase_collected_system_physics_research_add = 3
+		starbase_collected_system_society_research_add = 3
+	}
+
+	ai_weight = {
+		weight = 100
+		modifier = {
+			factor = 2
+			owner? = {
+				OR = {
+					has_ethic = ethic_materialist
+					has_ethic = ethic_fanatic_materialist
+					is_gestalt = yes
+				}
+			}
+		}
+	}
+}
+
+# =============================================================================
+# ARTISAN TOURING STAGE
+# The Troubadours were nomadic long before your empire was. They understand
+# the particular loneliness of the deep wayline — the same stars, different
+# systems, the endless transit. A Touring Stage on your waystation means
+# their performers travel with you: adapting their repertoire to each system,
+# each crew roster, each quiet moment between jumps.
+#
+# The network effect is subtler than the research or detection modules:
+# morale and unity, shared across the wayline like a song that travels faster
+# than light.
+# =============================================================================
+waystation_artisan_touring_stage = {
+	icon = "GFX_em_artisan_icon"
+	section = "SCIENCE_STARBASE_SECTION"
+	construction_days = 180
+	starbase_type = waystation
+	category = sm_enclave_cat
+
+	starbase_limit = {
+		base = 1
+	}
+
+	potential = {
+		exists = owner
+		is_waystation_starbase = yes
+		owner = {
+			is_homicidal = no
+			has_country_flag = em_artisan_partnership
+		}
+	}
+
+	possible = {
+		custom_tooltip = {
+			fail_text = "em_already_built"
+			owner = {
+				NOT = {
+					any_owned_starbase = {
+						NOT = { is_same_value = root }
+						has_starbase_module = waystation_artisan_touring_stage
+					}
+				}
+			}
+		}
+	}
+
+	resources = {
+		category = starbase_waystations_modules
+		cost = {
+			alloys = 100
+		}
+		upkeep = {
+			trade = 2
+		}
+	}
+
+	# Base: unity generated wherever the Stage performs
+	station_modifier = {
+		starbase_collected_system_unity_add = 10
+	}
+
+	# Consumer goods represent the amenity goods the Troubadours bring to crews
+	station_modifier = {
+		starbase_collected_system_consumer_goods_add = 1
+	}
+
+	# Gestalt: the Stage provides operational pattern variation instead of amenities
+	triggered_station_modifier = {
+		potential = {
+			owner? = { is_gestalt = yes }
+		}
+		starbase_collected_system_unity_add = 5
+	}
+
+	# Spiritualist bonus: art as pilgrimage, wherever the waystation wanders
+	triggered_station_modifier = {
+		potential = {
+			owner? = {
+				OR = {
+					has_ethic = ethic_spiritualist
+					has_ethic = ethic_fanatic_spiritualist
+				}
+			}
+		}
+		starbase_collected_system_unity_add = 5
+	}
+
+	# Network: the Troubadours' influence lifts spirits across the whole wayline
+	waystation_network_country_modifier = {
+		custom_tooltip = wayline_enclave_effects_tt
+		show_only_custom_tooltip = no
+		pop_happiness = 0.02
+		planet_amenities_mult = 0.05
+	}
+
+	# Joyous Enlightenment: the shared journey makes every performance sacred
+	triggered_station_modifier = {
+		potential = {
+			owner? = { has_country_flag = sacred_path_joyous_enlightenment }
+			has_neighboring_waystation = yes
+		}
+		custom_tooltip = blessings_joyous_enlightenment_tt
+		show_only_custom_tooltip = no
+		starbase_collected_system_unity_add = 10
+	}
+
+	# Middle Path - not a sacred site
+	triggered_station_modifier = {
+		potential = {
+			owner? = { has_country_flag = sacred_path_middle_path }
+			is_sacred_site_waystation = no
+		}
+		custom_tooltip = bonus_middle_path_tt
+		show_only_custom_tooltip = no
+		starbase_collected_system_unity_add = 5
+	}
+
+	# Middle Path - sacred site: the Stage performs for history as much as audience
+	triggered_station_modifier = {
+		potential = {
+			owner? = { has_country_flag = sacred_path_middle_path }
+			is_sacred_site_waystation = yes
+		}
+		custom_tooltip = bonus_sacred_site_tt
+		show_only_custom_tooltip = no
+		starbase_collected_system_unity_add = 10
+	}
+
+	ai_weight = {
+		weight = 100
+		modifier = {
+			factor = 2
+			owner? = {
+				OR = {
+					has_ethic = ethic_spiritualist
+					has_ethic = ethic_fanatic_spiritualist
+				}
+			}
+		}
+		modifier = {
+			factor = 0
+			owner? = { is_gestalt = yes }
+		}
+	}
+}
+
+# =============================================================================
+# NUMISTIC WAYPOINT EXCHANGE
+# The Numistic Order has long recognized that nomadic empires create a
+# different kind of financial infrastructure than settled ones. A Waypoint
+# Exchange doesn't hold deposits — it moves them. Wherever your waystation
+# docks, Order brokers facilitate short-term credit instruments that keep
+# the wayline economically liquid.
+#
+# The network effect is logistical: reduced friction across the entire
+# wayline keeps upkeep costs down and trade moving.
+#
+# Unavailable to gestalt empires.
+# =============================================================================
+waystation_numistic_waypoint_exchange = {
+	icon = "GFX_em_numistic_icon"
+	section = "SCIENCE_STARBASE_SECTION"
+	construction_days = 180
+	starbase_type = waystation
+	category = sm_enclave_cat
+
+	starbase_limit = {
+		base = 1
+	}
+
+	potential = {
+		exists = owner
+		is_waystation_starbase = yes
+		owner = {
+			is_homicidal = no
+			is_gestalt = no
+			has_country_flag = em_numistic_partnership
+		}
+	}
+
+	possible = {
+		custom_tooltip = {
+			fail_text = "em_already_built"
+			owner = {
+				NOT = {
+					any_owned_starbase = {
+						NOT = { is_same_value = root }
+						has_starbase_module = waystation_numistic_waypoint_exchange
+					}
+				}
+			}
+		}
+	}
+
+	resources = {
+		category = starbase_waystations_modules
+		cost = {
+			alloys = 100
+		}
+		upkeep = {
+			trade = 2
+		}
+	}
+
+	# Base: Order brokers improve trade collection at this waystation
+	station_modifier = {
+		starbase_collected_system_trade_add = 3
+	}
+
+	# Megacorp bonus: corporate accounts held with the Order generate additional trade
+	triggered_station_modifier = {
+		potential = {
+			owner? = { has_authority = auth_corporate }
+		}
+		starbase_collected_system_trade_add = 2
+	}
+
+	# Network: financial liquidity across the wayline reduces logistical friction
+	waystation_network_country_modifier = {
+		custom_tooltip = wayline_enclave_effects_tt
+		show_only_custom_tooltip = no
+		ship_upkeep_mult = -0.05
+		empire_size_mult = -0.03
+	}
+
+	# Joyous Enlightenment: Order brokers follow the wayline like a river of credit
+	triggered_station_modifier = {
+		potential = {
+			owner? = { has_country_flag = sacred_path_joyous_enlightenment }
+			has_neighboring_waystation = yes
+		}
+		custom_tooltip = blessings_joyous_enlightenment_tt
+		show_only_custom_tooltip = no
+		starbase_collected_system_trade_add = 2
+	}
+
+	# Middle Path - not a sacred site
+	triggered_station_modifier = {
+		potential = {
+			owner? = { has_country_flag = sacred_path_middle_path }
+			is_sacred_site_waystation = no
+		}
+		custom_tooltip = bonus_middle_path_tt
+		show_only_custom_tooltip = no
+		starbase_collected_system_trade_add = 2
+	}
+
+	# Middle Path - sacred site: the Order treats significant places as financial
+	# landmarks — anchor nodes in their credit routing algorithms
+	triggered_station_modifier = {
+		potential = {
+			owner? = { has_country_flag = sacred_path_middle_path }
+			is_sacred_site_waystation = yes
+		}
+		custom_tooltip = bonus_sacred_site_tt
+		show_only_custom_tooltip = no
+		starbase_collected_system_trade_add = 3
+	}
+
+	ai_weight = {
+		weight = 100
+		modifier = {
+			factor = 2
+			owner? = { has_authority = auth_corporate }
+		}
+		modifier = {
+			factor = 0
+			owner? = { is_gestalt = yes }
+		}
+	}
+}

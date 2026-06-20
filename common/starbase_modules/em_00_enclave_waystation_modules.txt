@@ -29,7 +29,7 @@
 # Non-psionic nomads observe with scholarly precision, gaining research.
 # =============================================================================
 waystation_shroud_communion = {
-	icon = "GFX_spaceport_module_dimensional_shrine"
+	icon = "GFX_em_shroudwalker_icon"
 	section = "SCIENCE_STARBASE_SECTION"
 	construction_days = 180
 	starbase_type = waystation
@@ -50,26 +50,12 @@ waystation_shroud_communion = {
 
 	possible = {
 		custom_tooltip = {
-			fail_text = "em_requires_shroudwalker_enclave"
-			solar_system = {
-				has_star_flag = enclave
-				any_fleet_in_system = {
-					owner? = {
-						has_country_flag = shroudwalker_enclave_country
-					}
-				}
-			}
-		}
-		custom_tooltip = {
-			fail_text = "em_requires_shroudwalker_opinion_60"
-			solar_system = {
-				any_fleet_in_system = {
-					owner? = {
-						has_country_flag = shroudwalker_enclave_country
-						opinion = {
-							who = root.owner
-							value >= 60
-						}
+			fail_text = "em_already_built"
+			owner = {
+				NOT = {
+					any_owned_starbase = {
+						NOT = { is_same_value = root }
+						has_starbase_module = waystation_shroud_communion
 					}
 				}
 			}
@@ -213,7 +199,7 @@ waystation_shroud_communion = {
 # Cannot be built by empires with psionic founder species.
 # =============================================================================
 waystation_warden_monitoring_post = {
-	icon = "GFX_spaceport_module_detecton_array"
+	icon = "GFX_em_mindwarden_icon"
 	section = "SCIENCE_STARBASE_SECTION"
 	construction_days = 180
 	starbase_type = waystation
@@ -228,44 +214,23 @@ waystation_warden_monitoring_post = {
 		is_waystation_starbase = yes
 		owner = {
 			is_homicidal = no
+			has_country_flag = em_mindwarden_partnership
 			# Psionic founder species cannot partner with Mindwardens
 			species = {
 				NOT = { has_trait = trait_psionic }
 				NOT = { has_trait = trait_latent_psionic }
 			}
 		}
-		# Mindwardens have no "diplomacy engaged" player flag — gate on fleet presence directly
-		solar_system = {
-			any_fleet_in_system = {
-				owner? = {
-					is_mercenary_mindwarden_enclave = yes
-				}
-			}
-		}
 	}
 
 	possible = {
 		custom_tooltip = {
-			fail_text = "em_requires_mindwarden_enclave"
-			solar_system = {
-				has_star_flag = enclave
-				any_fleet_in_system = {
-					owner? = {
-						is_mercenary_mindwarden_enclave = yes
-					}
-				}
-			}
-		}
-		custom_tooltip = {
-			fail_text = "em_requires_mindwarden_opinion_60"
-			solar_system = {
-				any_fleet_in_system = {
-					owner? = {
-						is_mercenary_mindwarden_enclave = yes
-						opinion = {
-							who = root.owner
-							value >= 60
-						}
+			fail_text = "em_already_built"
+			owner = {
+				NOT = {
+					any_owned_starbase = {
+						NOT = { is_same_value = root }
+						has_starbase_module = waystation_warden_monitoring_post
 					}
 				}
 			}
@@ -430,7 +395,7 @@ waystation_warden_monitoring_post = {
 # Where the fixed XuraCorp Terminal digs deep, the Cache casts wide.
 # =============================================================================
 waystation_xuracorp_gas_cache = {
-	icon = "GFX_spaceport_module_resource_silo"
+	icon = "GFX_em_xuracorp_icon"
 	section = "SCIENCE_STARBASE_SECTION"
 	construction_days = 180
 	starbase_type = waystation
@@ -448,23 +413,16 @@ waystation_xuracorp_gas_cache = {
 			is_gestalt = no
 			has_country_flag = em_xuracorp_partnership
 		}
-		solar_system = {
-			any_fleet_in_system = {
-				owner? = {
-					has_country_flag = trader_enclave_country_1  # XuraCorp
-				}
-			}
-		}
 	}
 
 	possible = {
 		custom_tooltip = {
-			fail_text = "em_requires_xuracorp_enclave"
-			solar_system = {
-				has_star_flag = enclave
-				any_fleet_in_system = {
-					owner? = {
-						has_country_flag = trader_enclave_country_1
+			fail_text = "em_already_built"
+			owner = {
+				NOT = {
+					any_owned_starbase = {
+						NOT = { is_same_value = root }
+						has_starbase_module = waystation_xuracorp_gas_cache
 					}
 				}
 			}
@@ -546,7 +504,7 @@ waystation_xuracorp_gas_cache = {
 # aboard, teaching your crews the Riggan way.
 # =============================================================================
 waystation_riggan_mote_depot = {
-	icon = "GFX_spaceport_module_resource_silo"
+	icon = "GFX_em_riggan_icon"
 	section = "SCIENCE_STARBASE_SECTION"
 	construction_days = 180
 	starbase_type = waystation
@@ -564,23 +522,16 @@ waystation_riggan_mote_depot = {
 			is_gestalt = no
 			has_country_flag = em_riggan_partnership
 		}
-		solar_system = {
-			any_fleet_in_system = {
-				owner? = {
-					has_country_flag = trader_enclave_country_2  # Riggan Commerce Exchange
-				}
-			}
-		}
 	}
 
 	possible = {
 		custom_tooltip = {
-			fail_text = "em_requires_riggan_enclave"
-			solar_system = {
-				has_star_flag = enclave
-				any_fleet_in_system = {
-					owner? = {
-						has_country_flag = trader_enclave_country_2
+			fail_text = "em_already_built"
+			owner = {
+				NOT = {
+					any_owned_starbase = {
+						NOT = { is_same_value = root }
+						has_starbase_module = waystation_riggan_mote_depot
 					}
 				}
 			}
@@ -663,7 +614,7 @@ waystation_riggan_mote_depot = {
 # remember — which is why opinion matters more than credits.
 # =============================================================================
 waystation_muutagan_crystal_exchange = {
-	icon = "GFX_spaceport_module_resource_silo"
+	icon = "GFX_em_muutagan_icon"
 	section = "SCIENCE_STARBASE_SECTION"
 	construction_days = 180
 	starbase_type = waystation
@@ -681,23 +632,16 @@ waystation_muutagan_crystal_exchange = {
 			is_gestalt = no
 			has_country_flag = em_muutagan_partnership
 		}
-		solar_system = {
-			any_fleet_in_system = {
-				owner? = {
-					has_country_flag = trader_enclave_country_3  # Muutagan Merchant Guild
-				}
-			}
-		}
 	}
 
 	possible = {
 		custom_tooltip = {
-			fail_text = "em_requires_muutagan_enclave"
-			solar_system = {
-				has_star_flag = enclave
-				any_fleet_in_system = {
-					owner? = {
-						has_country_flag = trader_enclave_country_3
+			fail_text = "em_already_built"
+			owner = {
+				NOT = {
+					any_owned_starbase = {
+						NOT = { is_same_value = root }
+						has_starbase_module = waystation_muutagan_crystal_exchange
 					}
 				}
 			}
