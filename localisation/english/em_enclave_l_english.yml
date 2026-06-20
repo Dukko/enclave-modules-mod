@@ -34,6 +34,7 @@
  em_enclave.1.name:0 "A Corporate Proposition"
  em_enclave.1.desc:0 "Welcome, welcome! Always a pleasure to meet a new potential partner.\n\nI am a Senior Extraction Liaison with XuraCorp - in short, I find opportunities and I close deals. Today, I am here about yours.\n\nXuraCorp would like to formalize our relationship. For a modest investment, we will embed our extraction specialists across your operations and share techniques for locating and refining exotic gas deposits that have taken us centuries to develop.\n\nWe think you will find it quite worthwhile."
  em_enclave.1.a:0 "A sound investment. [700 Energy]"
+ em_enclave.1.a.tt:0 "Grants access to the §HXuraCorp Extraction Terminal§! starbase building and the §HXuraCorp Gas Cache§! waystation module."
  em_enclave.1.b:0 "The timing is not ideal. Perhaps later."
  em_enclave.1.c:0 "We have no interest in such arrangements."
 
@@ -41,6 +42,7 @@
  em_enclave.2.name:0 "Old Hands, New Offer"
  em_enclave.2.desc:0 "I speak on behalf of the Riggan Commerce Exchange. We have been moving volatile motes across the stars for more than a thousand of your years - and we have learned a great deal along the way.\n\nWe would like to share that knowledge with you. Our logistics officers would embed with your mote operations and apply containment and extraction methods that are, if we may say so, second to none in the known galaxy.\n\nThe investment is reasonable. The returns, we expect, will be quite satisfying."
  em_enclave.2.a:0 "Experience is worth paying for. [700 Energy]"
+ em_enclave.2.a.tt:0 "Grants access to the §HRiggan Processing Hub§! starbase building and the §HRiggan Mote Depot§! waystation module."
  em_enclave.2.b:0 "We will consider it."
  em_enclave.2.c:0 "We prefer to manage our own operations."
 
@@ -48,6 +50,7 @@
  em_enclave.3.name:0 "The Guild Extends an Invitation"
  em_enclave.3.desc:0 "Well met, friends! I represent the Muutagan Merchant Guild - something of an institution when it comes to rare crystals.\n\nI will be direct: we would like to share our lapidary tradition with your people. Our merchants have spent generations learning to read crystal lattice structures, and the yields our methods unlock are quite remarkable.\n\nThis is not an offer we extend to just anyone. We think you have earned it - and we hope you agree the price is fair."
  em_enclave.3.a:0 "We are honored. And we will pay. [700 Energy]"
+ em_enclave.3.a.tt:0 "Grants access to the §HMuutagan Crystal Atelier§! starbase building and the §HMuutagan Crystal Exchange§! waystation module."
  em_enclave.3.b:0 "We must consider the offer carefully."
  em_enclave.3.c:0 "We are not interested."
 
@@ -55,6 +58,7 @@
  em_enclave.10.name:0 "The Traders' Compact"
  em_enclave.10.desc:0 "Ah - I see you have already met my colleagues from §HXuraCorp§! and the §HRiggan Commerce Exchange§!. We have been comparing notes, and it turns out we all had the same idea at around the same time.\n\nThe three of us would like to propose a joint arrangement. Exotic gas, volatile motes, rare crystals - all three covered in a single deal, at a price that reflects our genuine enthusiasm for working with you. We are calling it the §HTraders' Compact§!.\n\nWe are businesspeople, not a charity. But we do appreciate a good partner."
  em_enclave.10.a:0 "A combined investment, then. [2000 Energy]"
+ em_enclave.10.a.tt:0 "Grants access to the §HXuraCorp Extraction Terminal§!, §HRiggan Processing Hub§!, and §HMuutagan Crystal Atelier§! starbase buildings, and their corresponding waystation modules."
  em_enclave.10.b:0 "Too much at once. We will approach them individually."
  em_enclave.10.c:0 "We will not be dealing with this cartel."
 
@@ -144,6 +148,7 @@
  em_enclave.4.name:0 "An Archivist's Proposition"
  em_enclave.4.desc:0 "The individual who contacts you introduces themselves as a Senior Field Liaison of the §HCurator§! Order — a title that, they explain unprompted, carries specific obligations regarding factual precision in all communications.\n\nThey would like to propose an institutional relationship. Curator archivists embedded in your scientific establishments, sharing methodology developed over centuries of continuous documentation. In exchange, your survey data feeds their archives.\n\n\"We have reviewed your anomaly records,\" they add, placing a data chip on the table. \"There is significant room for improvement.\""
  em_enclave.4.a:0 "We accept the arrangement. [750 Energy]"
+ em_enclave.4.a.tt:0 "Grants access to the §HCurator Research Archive§! starbase building and the §HCurator Survey Terminal§! waystation module."
  em_enclave.4.b:0 "The timing is not right. Perhaps in a decade."
  em_enclave.4.c:0 "We prefer to conduct our own research."
 
@@ -151,6 +156,7 @@
  em_enclave.5.name:0 "The Troubadours Arrive"
  em_enclave.5.desc:0 "They didn't send a message. They sent a performance.\n\nA small delegation of §HArtisan Troubadours§! arrived at your capital unannounced and proceeded to stage a forty-minute theatrical piece in the lobby of your admiralty headquarters. The piece was, by all accounts, breathtaking — a meditation on the loneliness of expansion, the weight of empire, the small dignities that persist in the gap between stars.\n\nAfterward, one of them handed your security chief a formal proposal for an ongoing artistic partnership.\n\n\"We thought a demonstration would serve better than a letter,\" she said."
  em_enclave.5.a:0 "An unconventional approach. We accept. [500 Energy]"
+ em_enclave.5.a.tt:0 "Grants access to the §HArtisan Grand Stage§! starbase building and the §HArtisan Touring Stage§! waystation module."
  em_enclave.5.b:0 "We are not ready for this commitment. Not yet."
  em_enclave.5.c:0 "We are not interested in their art."
 
@@ -158,6 +164,7 @@
  em_enclave.6.name:0 "The Order Makes an Introduction"
  em_enclave.6.desc:0 "A representative of the §HNumistic Order§! arrives with an air of profound institutional gravity. They present credentials, allow a moment for verification, and then get to the point.\n\nThe Order would like to establish a formal financial relationship. A §HCredit Exchange§! at one of your starbases. Their brokers, their instruments, their centuries of accumulated credibility — placed at the disposal of your trade and administrative networks.\n\n\"The returns are modest,\" they acknowledge. \"The signal is not. Every factor in this sector will know you bank with us. That is, historically, worth rather more than the interest.\""
  em_enclave.6.a:0 "We understand the value of a good signal. [500 Energy, 50 Alloys]"
+ em_enclave.6.a.tt:0 "Grants access to the §HCaravaneer Credit Exchange§! starbase building and the §HCaravaneer Waypoint Exchange§! waystation module."
  em_enclave.6.b:0 "We need to review our financial arrangements first."
  em_enclave.6.c:0 "We manage our own finances."
 
@@ -165,6 +172,7 @@
  em_enclave.7.name:0 "The Wardens Make Contact"
  em_enclave.7.desc:0 "The communication arrives without preamble.\n\nA representative of the §HMindwarden Enclave§! identifies themselves, states that they have been monitoring your waystation network for some time, and notes — without apparent concern for how this lands — that the coverage you achieve is \"operationally significant.\"\n\nThey would like to formalize that significance. Mindwarden detection equipment installed at your waystations, integrated into their broader intelligence architecture. Your network extends their reach into regions no fixed §YVigil§! can watch; their expertise extends your awareness of what moves through them.\n\n\"You have already demonstrated the value of mobile surveillance,\" the representative says. \"We are simply proposing you do it better.\""
  em_enclave.7.a:0 "A practical arrangement. We accept. [100 Alloys]"
+ em_enclave.7.a.tt:0 "Grants access to the §HWarden's Vigil§! starbase building and the §HWarden's Monitoring Post§! waystation module."
  em_enclave.7.b:0 "We are not ready to make this commitment."
  em_enclave.7.c:0 "We have no interest in their surveillance network."
 
@@ -172,6 +180,7 @@
  em_enclave.20.name:0 "The Grand Commercial Network"
  em_enclave.20.desc:0 "They have coordinated. All four of them.\n\nRepresentatives of §HXuraCorp§!, the §HRiggan Commerce Exchange§!, the §HMuutagan Merchant Guild§!, and the §HNumistic Order§! have arrived together to make a single, unified proposal.\n\n\"We have been comparing our relationship with your empire,\" the Numistic liaison begins, \"and we have reached an agreement among ourselves that the arrangement is ready to formalize.\"\n\nWhat they are proposing is the §HGrand Commercial Network§!: a unified commercial framework integrating all four operations. The Numistic Order provides the financial architecture; the three traders provide the commodity flow; your empire provides the territory and the ambition.\n\n\"You have, in effect, already built this,\" the Riggan representative adds. \"We are simply proposing that it know its own name.\""
  em_enclave.20.a:0 "Then let it be named. We accept."
+ em_enclave.20.a.tt:0 "Applies the §HGrand Commercial Network§! permanent empire modifier, reducing market fees and improving trade value empire-wide."
  em_enclave.20.b:0 "The timing is not ideal. We will revisit this."
  em_enclave.20.c:0 "We prefer to keep these relationships separate."
 

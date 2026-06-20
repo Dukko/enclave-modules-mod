@@ -66,6 +66,7 @@ country_event = {
 
 	option = {
 		name = em_enclave.1.a
+		custom_tooltip = em_enclave.1.a.tt
 		add_resource = { energy = -700 }
 		set_country_flag = em_xuracorp_partnership
 	}
@@ -122,6 +123,7 @@ country_event = {
 
 	option = {
 		name = em_enclave.2.a
+		custom_tooltip = em_enclave.2.a.tt
 		add_resource = { energy = -700 }
 		set_country_flag = em_riggan_partnership
 	}
@@ -178,6 +180,7 @@ country_event = {
 
 	option = {
 		name = em_enclave.3.a
+		custom_tooltip = em_enclave.3.a.tt
 		add_resource = { energy = -700 }
 		set_country_flag = em_muutagan_partnership
 	}
@@ -239,6 +242,7 @@ country_event = {
 	# Accept — 2000 energy for all three (saves 100 vs 3 × 700)
 	option = {
 		name = em_enclave.10.a
+		custom_tooltip = em_enclave.10.a.tt
 		add_resource = { energy = -2000 }
 		set_country_flag = em_xuracorp_partnership
 		set_country_flag = em_riggan_partnership

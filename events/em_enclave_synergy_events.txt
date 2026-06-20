@@ -41,6 +41,7 @@ country_event = {
 	# Accept the Archive partnership
 	option = {
 		name = em_enclave.4.a
+		custom_tooltip = em_enclave.4.a.tt
 		add_resource = { energy = -750 }
 		set_country_flag = em_curator_partnership
 	}
@@ -88,6 +89,7 @@ country_event = {
 	# Accept the Stage partnership
 	option = {
 		name = em_enclave.5.a
+		custom_tooltip = em_enclave.5.a.tt
 		add_resource = { energy = -500 }
 		set_country_flag = em_artisan_partnership
 	}
@@ -138,6 +140,7 @@ country_event = {
 	# Accept the Exchange partnership
 	option = {
 		name = em_enclave.6.a
+		custom_tooltip = em_enclave.6.a.tt
 		add_resource = { energy = -500 alloys = -50 }
 		set_country_flag = em_numistic_partnership
 	}
@@ -196,6 +199,7 @@ country_event = {
 	# Accept — the Mindwardens extend their monitoring network to your waystations
 	option = {
 		name = em_enclave.7.a
+		custom_tooltip = em_enclave.7.a.tt
 		add_resource = { alloys = -100 }
 		set_country_flag = em_mindwarden_partnership
 	}
@@ -257,6 +261,7 @@ country_event = {
 	# Accept — form the Grand Commercial Network
 	option = {
 		name = em_enclave.20.a
+		custom_tooltip = em_enclave.20.a.tt
 		set_country_flag = em_grand_commercial_network
 
 		# Immediate resource windfall from the Network's inaugural operation
