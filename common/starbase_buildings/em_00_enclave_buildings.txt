@@ -24,6 +24,8 @@ em_shroud_conduit = {
 	icon = "GFX_em_shroudwalker_icon"
 	construction_days = 360
 
+	empire_limit = 1
+
 	potential = {
 		exists = owner
 		is_normal_starbase = yes
@@ -34,20 +36,6 @@ em_shroud_conduit = {
 		}
 	}
 
-	possible = {
-		custom_tooltip = {
-			fail_text = "em_already_built"
-			owner = {
-				NOT = {
-					any_system_within_border = {
-						starbase = {
-							has_starbase_building = em_shroud_conduit
-						}
-					}
-				}
-			}
-		}
-	}
 
 	resources = {
 		category = starbase_buildings
@@ -209,6 +197,8 @@ em_warden_vigil = {
 	icon = "GFX_em_mindwarden_icon"
 	construction_days = 360
 
+	empire_limit = 1
+
 	potential = {
 		exists = owner
 		is_normal_starbase = yes
@@ -223,20 +213,6 @@ em_warden_vigil = {
 		}
 	}
 
-	possible = {
-		custom_tooltip = {
-			fail_text = "em_already_built"
-			owner = {
-				NOT = {
-					any_system_within_border = {
-						starbase = {
-							has_starbase_building = em_warden_vigil
-						}
-					}
-				}
-			}
-		}
-	}
 
 	resources = {
 		category = starbase_buildings
@@ -349,6 +325,8 @@ em_xuracorp_gas_terminal = {
 	icon = "GFX_em_xuracorp_icon"
 	construction_days = 360
 
+	empire_limit = 1
+
 	potential = {
 		exists = owner
 		is_normal_starbase = yes
@@ -359,20 +337,6 @@ em_xuracorp_gas_terminal = {
 		}
 	}
 
-	possible = {
-		custom_tooltip = {
-			fail_text = "em_already_built"
-			owner = {
-				NOT = {
-					any_system_within_border = {
-						starbase = {
-							has_starbase_building = em_xuracorp_gas_terminal
-						}
-					}
-				}
-			}
-		}
-	}
 
 	resources = {
 		category = starbase_buildings
@@ -421,6 +385,8 @@ em_riggan_mote_hub = {
 	icon = "GFX_em_riggan_icon"
 	construction_days = 360
 
+	empire_limit = 1
+
 	potential = {
 		exists = owner
 		is_normal_starbase = yes
@@ -431,20 +397,6 @@ em_riggan_mote_hub = {
 		}
 	}
 
-	possible = {
-		custom_tooltip = {
-			fail_text = "em_already_built"
-			owner = {
-				NOT = {
-					any_system_within_border = {
-						starbase = {
-							has_starbase_building = em_riggan_mote_hub
-						}
-					}
-				}
-			}
-		}
-	}
 
 	resources = {
 		category = starbase_buildings
@@ -493,6 +445,8 @@ em_muutagan_crystal_atelier = {
 	icon = "GFX_em_muutagan_icon"
 	construction_days = 360
 
+	empire_limit = 1
+
 	potential = {
 		exists = owner
 		is_normal_starbase = yes
@@ -503,20 +457,6 @@ em_muutagan_crystal_atelier = {
 		}
 	}
 
-	possible = {
-		custom_tooltip = {
-			fail_text = "em_already_built"
-			owner = {
-				NOT = {
-					any_system_within_border = {
-						starbase = {
-							has_starbase_building = em_muutagan_crystal_atelier
-						}
-					}
-				}
-			}
-		}
-	}
 
 	resources = {
 		category = starbase_buildings

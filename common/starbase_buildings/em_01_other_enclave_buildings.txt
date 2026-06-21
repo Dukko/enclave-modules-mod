@@ -29,6 +29,8 @@ em_curator_archive = {
 	icon = "GFX_em_curator_icon"
 	construction_days = 360
 
+	empire_limit = 1
+
 	potential = {
 		exists = owner
 		is_normal_starbase = yes
@@ -38,20 +40,6 @@ em_curator_archive = {
 		}
 	}
 
-	possible = {
-		custom_tooltip = {
-			fail_text = "em_already_built"
-			owner = {
-				NOT = {
-					any_system_within_border = {
-						starbase = {
-							has_starbase_building = em_curator_archive
-						}
-					}
-				}
-			}
-		}
-	}
 
 	resources = {
 		category = starbase_buildings
@@ -125,6 +113,8 @@ em_artisan_stage = {
 	icon = "GFX_em_artisan_icon"
 	construction_days = 360
 
+	empire_limit = 1
+
 	potential = {
 		exists = owner
 		is_normal_starbase = yes
@@ -134,20 +124,6 @@ em_artisan_stage = {
 		}
 	}
 
-	possible = {
-		custom_tooltip = {
-			fail_text = "em_already_built"
-			owner = {
-				NOT = {
-					any_system_within_border = {
-						starbase = {
-							has_starbase_building = em_artisan_stage
-						}
-					}
-				}
-			}
-		}
-	}
 
 	resources = {
 		category = starbase_buildings
@@ -233,6 +209,8 @@ em_numistic_exchange = {
 	icon = "GFX_em_numistic_icon"
 	construction_days = 360
 
+	empire_limit = 1
+
 	potential = {
 		exists = owner
 		is_normal_starbase = yes
@@ -243,20 +221,6 @@ em_numistic_exchange = {
 		}
 	}
 
-	possible = {
-		custom_tooltip = {
-			fail_text = "em_already_built"
-			owner = {
-				NOT = {
-					any_system_within_border = {
-						starbase = {
-							has_starbase_building = em_numistic_exchange
-						}
-					}
-				}
-			}
-		}
-	}
 
 	resources = {
 		category = starbase_buildings

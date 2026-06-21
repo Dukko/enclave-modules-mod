@@ -32,6 +32,8 @@ waystation_curator_survey_terminal = {
 		base = 1
 	}
 
+	empire_limit = 1
+
 	potential = {
 		exists = owner
 		is_waystation_starbase = yes
@@ -41,20 +43,6 @@ waystation_curator_survey_terminal = {
 		}
 	}
 
-	possible = {
-		custom_tooltip = {
-			fail_text = "em_already_built"
-			owner = {
-				NOT = {
-					any_system_within_border = {
-						starbase = {
-							has_starbase_module = waystation_curator_survey_terminal
-						}
-					}
-				}
-			}
-		}
-	}
 
 	resources = {
 		category = starbase_waystations_modules
@@ -167,6 +155,8 @@ waystation_artisan_touring_stage = {
 		base = 1
 	}
 
+	empire_limit = 1
+
 	potential = {
 		exists = owner
 		is_waystation_starbase = yes
@@ -176,20 +166,6 @@ waystation_artisan_touring_stage = {
 		}
 	}
 
-	possible = {
-		custom_tooltip = {
-			fail_text = "em_already_built"
-			owner = {
-				NOT = {
-					any_system_within_border = {
-						starbase = {
-							has_starbase_module = waystation_artisan_touring_stage
-						}
-					}
-				}
-			}
-		}
-	}
 
 	resources = {
 		category = starbase_waystations_modules
@@ -315,6 +291,8 @@ waystation_numistic_waypoint_exchange = {
 		base = 1
 	}
 
+	empire_limit = 1
+
 	potential = {
 		exists = owner
 		is_waystation_starbase = yes
@@ -325,20 +303,6 @@ waystation_numistic_waypoint_exchange = {
 		}
 	}
 
-	possible = {
-		custom_tooltip = {
-			fail_text = "em_already_built"
-			owner = {
-				NOT = {
-					any_system_within_border = {
-						starbase = {
-							has_starbase_module = waystation_numistic_waypoint_exchange
-						}
-					}
-				}
-			}
-		}
-	}
 
 	resources = {
 		category = starbase_waystations_modules

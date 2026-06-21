@@ -39,6 +39,8 @@ waystation_shroud_communion = {
 		base = 1
 	}
 
+	empire_limit = 1
+
 	potential = {
 		exists = owner
 		is_waystation_starbase = yes
@@ -49,20 +51,6 @@ waystation_shroud_communion = {
 		}
 	}
 
-	possible = {
-		custom_tooltip = {
-			fail_text = "em_already_built"
-			owner = {
-				NOT = {
-					any_system_within_border = {
-						starbase = {
-							has_starbase_module = waystation_shroud_communion
-						}
-					}
-				}
-			}
-		}
-	}
 
 	resources = {
 		category = starbase_waystations_modules
@@ -211,6 +199,8 @@ waystation_warden_monitoring_post = {
 		base = 1
 	}
 
+	empire_limit = 1
+
 	potential = {
 		exists = owner
 		is_waystation_starbase = yes
@@ -225,20 +215,6 @@ waystation_warden_monitoring_post = {
 		}
 	}
 
-	possible = {
-		custom_tooltip = {
-			fail_text = "em_already_built"
-			owner = {
-				NOT = {
-					any_system_within_border = {
-						starbase = {
-							has_starbase_module = waystation_warden_monitoring_post
-						}
-					}
-				}
-			}
-		}
-	}
 
 	resources = {
 		category = starbase_waystations_modules
@@ -408,6 +384,8 @@ waystation_xuracorp_gas_cache = {
 		base = 1
 	}
 
+	empire_limit = 1
+
 	potential = {
 		exists = owner
 		is_waystation_starbase = yes
@@ -418,20 +396,6 @@ waystation_xuracorp_gas_cache = {
 		}
 	}
 
-	possible = {
-		custom_tooltip = {
-			fail_text = "em_already_built"
-			owner = {
-				NOT = {
-					any_system_within_border = {
-						starbase = {
-							has_starbase_module = waystation_xuracorp_gas_cache
-						}
-					}
-				}
-			}
-		}
-	}
 
 	resources = {
 		category = starbase_waystations_modules
@@ -518,6 +482,8 @@ waystation_riggan_mote_depot = {
 		base = 1
 	}
 
+	empire_limit = 1
+
 	potential = {
 		exists = owner
 		is_waystation_starbase = yes
@@ -528,20 +494,6 @@ waystation_riggan_mote_depot = {
 		}
 	}
 
-	possible = {
-		custom_tooltip = {
-			fail_text = "em_already_built"
-			owner = {
-				NOT = {
-					any_system_within_border = {
-						starbase = {
-							has_starbase_module = waystation_riggan_mote_depot
-						}
-					}
-				}
-			}
-		}
-	}
 
 	resources = {
 		category = starbase_waystations_modules
@@ -629,6 +581,8 @@ waystation_muutagan_crystal_exchange = {
 		base = 1
 	}
 
+	empire_limit = 1
+
 	potential = {
 		exists = owner
 		is_waystation_starbase = yes
@@ -639,20 +593,6 @@ waystation_muutagan_crystal_exchange = {
 		}
 	}
 
-	possible = {
-		custom_tooltip = {
-			fail_text = "em_already_built"
-			owner = {
-				NOT = {
-					any_system_within_border = {
-						starbase = {
-							has_starbase_module = waystation_muutagan_crystal_exchange
-						}
-					}
-				}
-			}
-		}
-	}
 
 	resources = {
 		category = starbase_waystations_modules
