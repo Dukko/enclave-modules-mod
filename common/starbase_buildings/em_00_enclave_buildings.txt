@@ -36,7 +36,6 @@ em_shroud_conduit = {
 			NOT = {
 				count_starbase_buildings = {
 					type = em_shroud_conduit
-					include_being_constructed = yes
 					count >= 1
 				}
 			}
@@ -220,7 +219,6 @@ em_warden_vigil = {
 			NOT = {
 				count_starbase_buildings = {
 					type = em_warden_vigil
-					include_being_constructed = yes
 					count >= 1
 				}
 			}
@@ -351,7 +349,6 @@ em_xuracorp_gas_terminal = {
 			NOT = {
 				count_starbase_buildings = {
 					type = em_xuracorp_gas_terminal
-					include_being_constructed = yes
 					count >= 1
 				}
 			}
@@ -418,7 +415,6 @@ em_riggan_mote_hub = {
 			NOT = {
 				count_starbase_buildings = {
 					type = em_riggan_mote_hub
-					include_being_constructed = yes
 					count >= 1
 				}
 			}
@@ -485,7 +481,6 @@ em_muutagan_crystal_atelier = {
 			NOT = {
 				count_starbase_buildings = {
 					type = em_muutagan_crystal_atelier
-					include_being_constructed = yes
 					count >= 1
 				}
 			}

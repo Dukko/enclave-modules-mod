@@ -51,7 +51,6 @@ waystation_shroud_communion = {
 			NOT = {
 				count_starbase_modules = {
 					type = waystation_shroud_communion
-					include_being_constructed = yes
 					count >= 1
 				}
 			}
@@ -222,7 +221,6 @@ waystation_warden_monitoring_post = {
 			NOT = {
 				count_starbase_modules = {
 					type = waystation_warden_monitoring_post
-					include_being_constructed = yes
 					count >= 1
 				}
 			}
@@ -410,7 +408,6 @@ waystation_xuracorp_gas_cache = {
 			NOT = {
 				count_starbase_modules = {
 					type = waystation_xuracorp_gas_cache
-					include_being_constructed = yes
 					count >= 1
 				}
 			}
@@ -515,7 +512,6 @@ waystation_riggan_mote_depot = {
 			NOT = {
 				count_starbase_modules = {
 					type = waystation_riggan_mote_depot
-					include_being_constructed = yes
 					count >= 1
 				}
 			}
@@ -621,7 +617,6 @@ waystation_muutagan_crystal_exchange = {
 			NOT = {
 				count_starbase_modules = {
 					type = waystation_muutagan_crystal_exchange
-					include_being_constructed = yes
 					count >= 1
 				}
 			}

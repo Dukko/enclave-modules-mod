@@ -43,7 +43,6 @@ waystation_curator_survey_terminal = {
 			NOT = {
 				count_starbase_modules = {
 					type = waystation_curator_survey_terminal
-					include_being_constructed = yes
 					count >= 1
 				}
 			}
@@ -173,7 +172,6 @@ waystation_artisan_touring_stage = {
 			NOT = {
 				count_starbase_modules = {
 					type = waystation_artisan_touring_stage
-					include_being_constructed = yes
 					count >= 1
 				}
 			}
@@ -317,7 +315,6 @@ waystation_numistic_waypoint_exchange = {
 			NOT = {
 				count_starbase_modules = {
 					type = waystation_numistic_waypoint_exchange
-					include_being_constructed = yes
 					count >= 1
 				}
 			}
