@@ -46,8 +46,10 @@ waystation_curator_survey_terminal = {
 			fail_text = "em_already_built"
 			owner = {
 				NOT = {
-					any_owned_starbase = {
-						has_starbase_module = waystation_curator_survey_terminal
+					any_system_within_border = {
+						starbase = {
+							has_starbase_module = waystation_curator_survey_terminal
+						}
 					}
 				}
 			}
@@ -179,8 +181,10 @@ waystation_artisan_touring_stage = {
 			fail_text = "em_already_built"
 			owner = {
 				NOT = {
-					any_owned_starbase = {
-						has_starbase_module = waystation_artisan_touring_stage
+					any_system_within_border = {
+						starbase = {
+							has_starbase_module = waystation_artisan_touring_stage
+						}
 					}
 				}
 			}
@@ -326,8 +330,10 @@ waystation_numistic_waypoint_exchange = {
 			fail_text = "em_already_built"
 			owner = {
 				NOT = {
-					any_owned_starbase = {
-						has_starbase_module = waystation_numistic_waypoint_exchange
+					any_system_within_border = {
+						starbase = {
+							has_starbase_module = waystation_numistic_waypoint_exchange
+						}
 					}
 				}
 			}

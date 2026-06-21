@@ -39,8 +39,10 @@ em_shroud_conduit = {
 			fail_text = "em_already_built"
 			owner = {
 				NOT = {
-					any_owned_starbase = {
-						has_starbase_building = em_shroud_conduit
+					any_system_within_border = {
+						starbase = {
+							has_starbase_building = em_shroud_conduit
+						}
 					}
 				}
 			}
@@ -226,8 +228,10 @@ em_warden_vigil = {
 			fail_text = "em_already_built"
 			owner = {
 				NOT = {
-					any_owned_starbase = {
-						has_starbase_building = em_warden_vigil
+					any_system_within_border = {
+						starbase = {
+							has_starbase_building = em_warden_vigil
+						}
 					}
 				}
 			}
@@ -360,8 +364,10 @@ em_xuracorp_gas_terminal = {
 			fail_text = "em_already_built"
 			owner = {
 				NOT = {
-					any_owned_starbase = {
-						has_starbase_building = em_xuracorp_gas_terminal
+					any_system_within_border = {
+						starbase = {
+							has_starbase_building = em_xuracorp_gas_terminal
+						}
 					}
 				}
 			}
@@ -430,8 +436,10 @@ em_riggan_mote_hub = {
 			fail_text = "em_already_built"
 			owner = {
 				NOT = {
-					any_owned_starbase = {
-						has_starbase_building = em_riggan_mote_hub
+					any_system_within_border = {
+						starbase = {
+							has_starbase_building = em_riggan_mote_hub
+						}
 					}
 				}
 			}
@@ -500,8 +508,10 @@ em_muutagan_crystal_atelier = {
 			fail_text = "em_already_built"
 			owner = {
 				NOT = {
-					any_owned_starbase = {
-						has_starbase_building = em_muutagan_crystal_atelier
+					any_system_within_border = {
+						starbase = {
+							has_starbase_building = em_muutagan_crystal_atelier
+						}
 					}
 				}
 			}

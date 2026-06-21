@@ -43,8 +43,10 @@ em_curator_archive = {
 			fail_text = "em_already_built"
 			owner = {
 				NOT = {
-					any_owned_starbase = {
-						has_starbase_building = em_curator_archive
+					any_system_within_border = {
+						starbase = {
+							has_starbase_building = em_curator_archive
+						}
 					}
 				}
 			}
@@ -137,8 +139,10 @@ em_artisan_stage = {
 			fail_text = "em_already_built"
 			owner = {
 				NOT = {
-					any_owned_starbase = {
-						has_starbase_building = em_artisan_stage
+					any_system_within_border = {
+						starbase = {
+							has_starbase_building = em_artisan_stage
+						}
 					}
 				}
 			}
@@ -244,8 +248,10 @@ em_numistic_exchange = {
 			fail_text = "em_already_built"
 			owner = {
 				NOT = {
-					any_owned_starbase = {
-						has_starbase_building = em_numistic_exchange
+					any_system_within_border = {
+						starbase = {
+							has_starbase_building = em_numistic_exchange
+						}
 					}
 				}
 			}

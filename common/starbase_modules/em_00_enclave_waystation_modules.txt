@@ -54,8 +54,10 @@ waystation_shroud_communion = {
 			fail_text = "em_already_built"
 			owner = {
 				NOT = {
-					any_owned_starbase = {
-						has_starbase_module = waystation_shroud_communion
+					any_system_within_border = {
+						starbase = {
+							has_starbase_module = waystation_shroud_communion
+						}
 					}
 				}
 			}
@@ -228,8 +230,10 @@ waystation_warden_monitoring_post = {
 			fail_text = "em_already_built"
 			owner = {
 				NOT = {
-					any_owned_starbase = {
-						has_starbase_module = waystation_warden_monitoring_post
+					any_system_within_border = {
+						starbase = {
+							has_starbase_module = waystation_warden_monitoring_post
+						}
 					}
 				}
 			}
@@ -419,8 +423,10 @@ waystation_xuracorp_gas_cache = {
 			fail_text = "em_already_built"
 			owner = {
 				NOT = {
-					any_owned_starbase = {
-						has_starbase_module = waystation_xuracorp_gas_cache
+					any_system_within_border = {
+						starbase = {
+							has_starbase_module = waystation_xuracorp_gas_cache
+						}
 					}
 				}
 			}
@@ -527,8 +533,10 @@ waystation_riggan_mote_depot = {
 			fail_text = "em_already_built"
 			owner = {
 				NOT = {
-					any_owned_starbase = {
-						has_starbase_module = waystation_riggan_mote_depot
+					any_system_within_border = {
+						starbase = {
+							has_starbase_module = waystation_riggan_mote_depot
+						}
 					}
 				}
 			}
@@ -636,8 +644,10 @@ waystation_muutagan_crystal_exchange = {
 			fail_text = "em_already_built"
 			owner = {
 				NOT = {
-					any_owned_starbase = {
-						has_starbase_module = waystation_muutagan_crystal_exchange
+					any_system_within_border = {
+						starbase = {
+							has_starbase_module = waystation_muutagan_crystal_exchange
+						}
 					}
 				}
 			}
