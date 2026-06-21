@@ -214,3 +214,7 @@
  em_requires_caravaneer_enclave:0 "Requires the §HCaravaneers§! home station to be present in this system"
  em_requires_numistic_opinion_60:0 "Requires §Y60§! Opinion with the §HCaravaneers§!"
  em_already_built:0 "Already built on another starbase (limit: §Y1 per empire§!)"
+
+ # Override vanilla tooltip: clarify that wayline network bonuses come from
+ # the partnership agreement, not from having the enclave physically present.
+ wayline_enclave_effects_tt: "Due to our §Ypartnership agreement§!, active empire-wide:"
