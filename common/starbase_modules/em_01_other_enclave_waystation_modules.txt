@@ -47,7 +47,6 @@ waystation_curator_survey_terminal = {
 			owner = {
 				NOT = {
 					any_owned_starbase = {
-						NOT = { is_same_value = root }
 						has_starbase_module = waystation_curator_survey_terminal
 					}
 				}
@@ -181,7 +180,6 @@ waystation_artisan_touring_stage = {
 			owner = {
 				NOT = {
 					any_owned_starbase = {
-						NOT = { is_same_value = root }
 						has_starbase_module = waystation_artisan_touring_stage
 					}
 				}
@@ -329,7 +327,6 @@ waystation_numistic_waypoint_exchange = {
 			owner = {
 				NOT = {
 					any_owned_starbase = {
-						NOT = { is_same_value = root }
 						has_starbase_module = waystation_numistic_waypoint_exchange
 					}
 				}

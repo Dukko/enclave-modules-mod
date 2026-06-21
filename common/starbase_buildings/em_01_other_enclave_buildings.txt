@@ -44,7 +44,6 @@ em_curator_archive = {
 			owner = {
 				NOT = {
 					any_owned_starbase = {
-						NOT = { is_same_value = root }
 						has_starbase_building = em_curator_archive
 					}
 				}
@@ -139,7 +138,6 @@ em_artisan_stage = {
 			owner = {
 				NOT = {
 					any_owned_starbase = {
-						NOT = { is_same_value = root }
 						has_starbase_building = em_artisan_stage
 					}
 				}
@@ -247,7 +245,6 @@ em_numistic_exchange = {
 			owner = {
 				NOT = {
 					any_owned_starbase = {
-						NOT = { is_same_value = root }
 						has_starbase_building = em_numistic_exchange
 					}
 				}

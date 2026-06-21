@@ -29,8 +29,8 @@ em_shroud_conduit = {
 		is_normal_starbase = yes
 		owner = {
 			is_homicidal = no
-			# Set on the player's country when they first engage with the Shroudwalker Enclave
-			has_country_flag = shroudwalker_enclave_diplomacy_engaged
+			# Set by em_enclave.8 when the Shroudwalker partnership is accepted
+			has_country_flag = em_shroudwalker_partnership
 		}
 	}
 
@@ -40,7 +40,6 @@ em_shroud_conduit = {
 			owner = {
 				NOT = {
 					any_owned_starbase = {
-						NOT = { is_same_value = root }
 						has_starbase_building = em_shroud_conduit
 					}
 				}
@@ -228,7 +227,6 @@ em_warden_vigil = {
 			owner = {
 				NOT = {
 					any_owned_starbase = {
-						NOT = { is_same_value = root }
 						has_starbase_building = em_warden_vigil
 					}
 				}
@@ -363,7 +361,6 @@ em_xuracorp_gas_terminal = {
 			owner = {
 				NOT = {
 					any_owned_starbase = {
-						NOT = { is_same_value = root }
 						has_starbase_building = em_xuracorp_gas_terminal
 					}
 				}
@@ -434,7 +431,6 @@ em_riggan_mote_hub = {
 			owner = {
 				NOT = {
 					any_owned_starbase = {
-						NOT = { is_same_value = root }
 						has_starbase_building = em_riggan_mote_hub
 					}
 				}
@@ -505,7 +501,6 @@ em_muutagan_crystal_atelier = {
 			owner = {
 				NOT = {
 					any_owned_starbase = {
-						NOT = { is_same_value = root }
 						has_starbase_building = em_muutagan_crystal_atelier
 					}
 				}

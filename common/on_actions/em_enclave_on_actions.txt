@@ -11,5 +11,6 @@ on_five_year_pulse_country = {
 		em_enclave.5	# Artisan Troubadour proposal
 		em_enclave.6	# Numistic Order proposal
 		em_enclave.7	# Mindwarden proposal
+		em_enclave.8	# Shroudwalker proposal
 	}
 }

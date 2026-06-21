@@ -44,7 +44,8 @@ waystation_shroud_communion = {
 		is_waystation_starbase = yes
 		owner = {
 			is_homicidal = no
-			has_country_flag = shroudwalker_enclave_diplomacy_engaged
+			# Set by em_enclave.8 when the Shroudwalker partnership is accepted
+			has_country_flag = em_shroudwalker_partnership
 		}
 	}
 
@@ -54,7 +55,6 @@ waystation_shroud_communion = {
 			owner = {
 				NOT = {
 					any_owned_starbase = {
-						NOT = { is_same_value = root }
 						has_starbase_module = waystation_shroud_communion
 					}
 				}
@@ -229,7 +229,6 @@ waystation_warden_monitoring_post = {
 			owner = {
 				NOT = {
 					any_owned_starbase = {
-						NOT = { is_same_value = root }
 						has_starbase_module = waystation_warden_monitoring_post
 					}
 				}
@@ -421,7 +420,6 @@ waystation_xuracorp_gas_cache = {
 			owner = {
 				NOT = {
 					any_owned_starbase = {
-						NOT = { is_same_value = root }
 						has_starbase_module = waystation_xuracorp_gas_cache
 					}
 				}
@@ -530,7 +528,6 @@ waystation_riggan_mote_depot = {
 			owner = {
 				NOT = {
 					any_owned_starbase = {
-						NOT = { is_same_value = root }
 						has_starbase_module = waystation_riggan_mote_depot
 					}
 				}
@@ -640,7 +637,6 @@ waystation_muutagan_crystal_exchange = {
 			owner = {
 				NOT = {
 					any_owned_starbase = {
-						NOT = { is_same_value = root }
 						has_starbase_module = waystation_muutagan_crystal_exchange
 					}
 				}

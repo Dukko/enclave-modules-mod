@@ -5,9 +5,10 @@
 # em_enclave.5  — Artisan Troubadour Proposal
 # em_enclave.6  — Numistic Order Proposal
 # em_enclave.7  — Mindwarden Proposal
+# em_enclave.8  — Shroudwalker Proposal
 # em_enclave.20 — The Grand Commercial Network (all three traders + Numistic)
 #
-# Events 4/5/6 fire on on_five_year_pulse_country.
+# Events 4–8 fire on on_five_year_pulse_country.
 # Event 20 fires on on_five_year_pulse_country; requires all four partnerships
 # and the MegaCorp DLC. One-time only (blocked by em_grand_commercial_network flag).
 ####################################
@@ -217,6 +218,58 @@ country_event = {
 	option = {
 		name = em_enclave.7.c
 		set_country_flag = em_mindwarden_declined
+	}
+}
+
+# ============================================================================
+# em_enclave.8 — SHROUDWALKER PROPOSAL
+# Fires when the Shroudwalkers have opinion >= 50 and the player has made
+# first contact (shroudwalker_enclave_diplomacy_engaged).
+# Sets em_shroudwalker_partnership, which unlocks the Shroud Conduit and the
+# Shroud Communion Chamber.
+# ============================================================================
+country_event = {
+	id = em_enclave.8
+	title = em_enclave.8.name
+	desc = em_enclave.8.desc
+	picture = GFX_evt_shroud
+
+	is_triggered_only = yes
+
+	trigger = {
+		is_country_type = default
+		is_homicidal = no
+		has_country_flag = shroudwalker_enclave_diplomacy_engaged
+		NOT = { has_country_flag = em_shroudwalker_partnership }
+		NOT = { has_country_flag = em_shroudwalker_declined }
+		NOT = { has_country_flag = em_shroudwalker_cooldown }
+		any_country = {
+			has_country_flag = shroudwalker_enclave_country
+			opinion = { who = root value >= 50 }
+		}
+	}
+
+	# Accept — the Shroudwalkers open a formal channel to the Shroud
+	option = {
+		name = em_enclave.8.a
+		custom_tooltip = em_enclave.8.a.tt
+		add_resource = { energy = -750 }
+		set_country_flag = em_shroudwalker_partnership
+	}
+
+	# Decline for now — 10-year cooldown
+	option = {
+		name = em_enclave.8.b
+		set_timed_country_flag = {
+			flag = em_shroudwalker_cooldown
+			days = 3650
+		}
+	}
+
+	# Decline permanently
+	option = {
+		name = em_enclave.8.c
+		set_country_flag = em_shroudwalker_declined
 	}
 }
 

@@ -176,6 +176,14 @@
  em_enclave.7.b:0 "We are not ready to make this commitment."
  em_enclave.7.c:0 "We have no interest in their surveillance network."
 
+ # em_enclave.8 — Shroudwalkers
+ em_enclave.8.name:0 "The Shroud Has Been Watching"
+ em_enclave.8.desc:0 "The contact doesn't come through normal diplomatic channels.\n\nA §HShroudwalker§! Elder reaches your head of state directly — not through an ambassador, but through a resonance transmission that leaves the recipient with the distinct feeling of having been observed from a very great distance for a very long time.\n\nThe message is unhurried. The §HShroudwalker Enclave§! has been attending to your empire. They have noted certain qualities. They believe you are ready for something more than occasional commerce with the Shroud — they are prepared to establish a formal channel, a dedicated nexus where your people may listen and, in time, be heard.\n\n\"We do not extend this offer lightly,\" the Elder says. \"The Shroud is not patient with the unprepared. You are not unprepared.\"\n\nThey ask only that you invest meaningfully in the infrastructure to receive what the Shroud has to offer."
+ em_enclave.8.a:0 "We are ready to listen. [750 Energy]"
+ em_enclave.8.a.tt:0 "Grants access to the §HShroud Conduit§! starbase building and the §HShroud Communion Chamber§! waystation module."
+ em_enclave.8.b:0 "We are not yet prepared for this commitment."
+ em_enclave.8.c:0 "We will not enter into such arrangements."
+
  # em_enclave.20 — The Grand Commercial Network
  em_enclave.20.name:0 "The Grand Commercial Network"
  em_enclave.20.desc:0 "They have coordinated. All four of them.\n\nRepresentatives of §HXuraCorp§!, the §HRiggan Commerce Exchange§!, the §HMuutagan Merchant Guild§!, and the §HNumistic Order§! have arrived together to make a single, unified proposal.\n\n\"We have been comparing our relationship with your empire,\" the Numistic liaison begins, \"and we have reached an agreement among ourselves that the arrangement is ready to formalize.\"\n\nWhat they are proposing is the §HGrand Commercial Network§!: a unified commercial framework integrating all four operations. The Numistic Order provides the financial architecture; the three traders provide the commodity flow; your empire provides the territory and the ambition.\n\n\"You have, in effect, already built this,\" the Riggan representative adds. \"We are simply proposing that it know its own name.\""
