@@ -83,8 +83,8 @@ waystation_shroud_communion = {
 				}
 			}
 		}
-		starbase_collected_system_unity_add = 3
-		starbase_collected_system_society_research_add = 3
+		starbase_collected_system_unity_add = 5
+		starbase_collected_system_society_research_add = 4
 	}
 
 	# Psionic nomads with Zro mining tap the Shroud's residual energy
@@ -116,12 +116,12 @@ waystation_shroud_communion = {
 		starbase_collected_system_society_research_add = 2
 	}
 
-	# Network modifier: insights from the Communion Chamber flow along the wayline
-	# (broader but shallower than the fixed Conduit's -5% tradition reduction)
+	# Network modifier: nomads communing with the Shroud find each jump comes more naturally
+	# (the Conduit offers tradition depth; the Chamber offers freedom of movement)
 	waystation_network_country_modifier = {
 		custom_tooltip = wayline_enclave_effects_tt
 		show_only_custom_tooltip = no
-		tradition_cost_mult = -0.03
+		ship_jumpdrive_cooldown_mult = -0.10
 		research_sharing_mult = 0.02
 	}
 
@@ -287,7 +287,7 @@ waystation_warden_monitoring_post = {
 				}
 			}
 		}
-		country_army_damage_mult = 0.05
+		army_damage_mult = 0.05
 	}
 
 	# Machine empires: exceptional anti-psionic partners, additional detection
@@ -300,12 +300,12 @@ waystation_warden_monitoring_post = {
 		ship_cloaking_detection_add = 1
 	}
 
-	# Network modifier: Mindwarden monitoring and logistical support across the wayline
-	# (more intel-focused than the fixed Vigil's fortified posture)
+	# Network modifier: Mindwarden training pushes your operatives to a deeper level
+	# (the fixed Vigil hardened against psionic assault; the Post extends your reach)
 	waystation_network_country_modifier = {
 		custom_tooltip = wayline_enclave_effects_tt
 		show_only_custom_tooltip = no
-		ship_upkeep_mult = -0.05
+		spy_network_levels_add = 1
 		spy_network_daily_value_mult = 0.05
 	}
 

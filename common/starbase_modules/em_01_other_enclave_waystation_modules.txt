@@ -81,12 +81,12 @@ waystation_curator_survey_terminal = {
 		starbase_collected_system_engineering_research_add = 2
 	}
 
-	# Network: Curator analytical frameworks propagate across the wayline
+	# Network: Curator field methodology makes your science ships survey faster
+	# (the Archive deepens research; the Terminal speeds the search itself)
 	waystation_network_country_modifier = {
 		custom_tooltip = wayline_enclave_effects_tt
 		show_only_custom_tooltip = no
-		country_physics_tech_research_speed = 0.03
-		country_society_tech_research_speed = 0.03
+		science_ship_survey_speed = 0.25
 	}
 
 	# Joyous Enlightenment: a network of surveying minds amplifies every discovery
@@ -350,6 +350,7 @@ waystation_numistic_waypoint_exchange = {
 	waystation_network_country_modifier = {
 		custom_tooltip = wayline_enclave_effects_tt
 		show_only_custom_tooltip = no
+		ships_upkeep_mult = -0.03
 		empire_size_mult = -0.03
 	}
 

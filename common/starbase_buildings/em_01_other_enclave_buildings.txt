@@ -171,7 +171,7 @@ em_artisan_stage = {
 		potential = {
 			owner = { is_gestalt = yes }
 		}
-		unity_from_jobs_mult = 0.10
+		planet_jobs_unity_produces_mult = 0.10
 	}
 
 	# Spiritualist bonus: Troubadour art resonates deeply with faith traditions
@@ -184,7 +184,7 @@ em_artisan_stage = {
 				}
 			}
 		}
-		unity_from_jobs_mult = 0.05
+		planet_jobs_unity_produces_mult = 0.05
 		tradition_cost_mult = -0.03
 	}
 

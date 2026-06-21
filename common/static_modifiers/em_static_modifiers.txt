@@ -14,9 +14,8 @@ em_grand_commercial_network_modifier = {
 	icon = "GFX_modifier_trade_value_add"  # TODO: verify icon key
 
 	country_trade_fee = -0.10
-	country_trade_fee = -0.05
 	empire_size_mult = -0.05
-	ship_upkeep_mult = -0.03
+	ships_upkeep_mult = -0.03
 
 	# Megacorp amplifier: the Network was built in their image
 	# (handled as a separate triggered modifier in the event itself,

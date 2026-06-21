@@ -22,13 +22,14 @@ Each enclave provides two pieces of content: a **starbase building** for traditi
 - +1 Zro *(psionic empires with Zro mining tech)*
 - Country: −5% tradition cost
 - Country: −3% tradition cost, +5% unity from jobs *(spiritualist)*
+- Country: +10% psionic aura effectiveness *(psionic empires)*
 
 **Shroud Communion Chamber** *(waystation module, 100 alloys, 2 trade upkeep)*
 - Station: +10 unity per system
-- Station: +5 unity, +5 society research per system *(psionic)*
+- Station: +5 unity, +4 society research per system *(psionic)*
 - Station: +3 physics, +2 society research per system *(non-psionic)*
 - Station: +1 Zro per system *(psionic + Zro mining tech)*
-- Wayline network: −3% tradition cost, +2% research sharing
+- Wayline network: −10% jump drive cooldown, +2% research sharing
 
 ---
 
@@ -50,7 +51,7 @@ Each enclave provides two pieces of content: a **starbase building** for traditi
 - Station: +5% ship hull *(militarist / Despoilers / Void Reavers)*
 - Country: +5% army damage *(militarist / Despoilers / Void Reavers)*
 - Station: +1 cloaking detection *(machine empires)*
-- Wayline network: −5% ship upkeep, +5% spy network growth
+- Wayline network: +1 spy network level cap, +5% spy network growth
 
 ---
 
@@ -102,10 +103,10 @@ Each enclave provides two pieces of content: a **starbase building** for traditi
 - Country: +5% physics tech speed, +5% society tech speed
 
 **Curator Survey Terminal** *(waystation module, 100 alloys, 2 trade upkeep)*
-- Station: +3 physics, +3 society research per system
+- Station: +4 physics, +4 society research per system
 - Station: +2 physics, +2 engineering per system *(gestalt)*
 - Empire: +5% anomaly generation chance
-- Wayline network: +3% physics tech speed, +3% society tech speed
+- Wayline network: +25% science ship survey speed
 
 ---
 
@@ -138,7 +139,7 @@ Each enclave provides two pieces of content: a **starbase building** for traditi
 **Caravaneer Waypoint Exchange** *(waystation module, 100 alloys, 2 trade upkeep)*
 - Station: +3 trade per system
 - Station: +2 trade per system *(megacorp)*
-- Wayline network: −5% ship upkeep, −3% empire size
+- Wayline network: −3% ship upkeep, −3% empire size
 
 ---
 

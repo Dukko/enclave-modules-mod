@@ -141,10 +141,10 @@ em_shroud_conduit = {
 			}
 		}
 		tradition_cost_mult = -0.03
-		unity_from_jobs_mult = 0.05
+		planet_jobs_unity_produces_mult = 0.05
 	}
 
-	# Psionic ascension bonus: the Conduit amplifies active shroud contact
+	# Psionic ascension bonus: the Conduit amplifies psionic aura intensity
 	triggered_country_modifier = {
 		potential = {
 			owner = {
@@ -154,7 +154,7 @@ em_shroud_conduit = {
 				}
 			}
 		}
-		shroud_passive_psionic_mult = 0.10
+		psionic_aura_effectiveness_mult = 0.10
 	}
 
 	ai_weight = {
@@ -258,7 +258,7 @@ em_warden_vigil = {
 
 	# Mindwarden logistical support: supply chain coordination
 	country_modifier = {
-		ship_upkeep_mult = -0.05
+		ships_upkeep_mult = -0.05
 	}
 
 	# Militarist empires: Warden combat doctrine applied to planetary assault forces
@@ -271,7 +271,7 @@ em_warden_vigil = {
 				}
 			}
 		}
-		country_army_damage_mult = 0.10
+		army_damage_mult = 0.10
 		army_defense_morale_mult = 0.10
 	}
 
@@ -292,7 +292,7 @@ em_warden_vigil = {
 				is_machine_empire = yes
 			}
 		}
-		ship_upkeep_mult = -0.05
+		ships_upkeep_mult = -0.05
 	}
 
 	ai_weight = {
