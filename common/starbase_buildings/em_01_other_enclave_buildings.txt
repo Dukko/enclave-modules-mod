@@ -78,8 +78,8 @@ em_curator_archive = {
 
 	# Empire-wide: Curator methodology raises the baseline of all research
 	country_modifier = {
-		country_physics_tech_research_speed = 0.05
-		country_society_tech_research_speed = 0.05
+		country_physics_tech_research_speed = 0.03
+		country_society_tech_research_speed = 0.03
 	}
 
 	ai_weight = {
@@ -263,7 +263,7 @@ em_numistic_exchange = {
 	# Empire-wide: Numistic financial networks reduce administrative overhead
 	# and improve galactic market access
 	country_modifier = {
-		empire_size_mult = -0.05
+		empire_size_mult = -0.03
 		country_trade_fee = -0.05
 	}
 

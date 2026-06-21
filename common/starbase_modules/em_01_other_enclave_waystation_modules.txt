@@ -62,8 +62,8 @@ waystation_curator_survey_terminal = {
 
 	# Base: Curator analysts review local sensor data at each system visited
 	station_modifier = {
-		starbase_collected_system_physics_research_add = 3
-		starbase_collected_system_society_research_add = 3
+		starbase_collected_system_physics_research_add = 4
+		starbase_collected_system_society_research_add = 4
 	}
 
 	# Anomaly generation improves empire-wide while the Terminal is active
@@ -77,6 +77,7 @@ waystation_curator_survey_terminal = {
 			owner? = { is_gestalt = yes }
 		}
 		starbase_collected_system_physics_research_add = 2
+		starbase_collected_system_society_research_add = 2
 		starbase_collected_system_engineering_research_add = 2
 	}
 
@@ -349,7 +350,6 @@ waystation_numistic_waypoint_exchange = {
 	waystation_network_country_modifier = {
 		custom_tooltip = wayline_enclave_effects_tt
 		show_only_custom_tooltip = no
-		ship_upkeep_mult = -0.05
 		empire_size_mult = -0.03
 	}
 
