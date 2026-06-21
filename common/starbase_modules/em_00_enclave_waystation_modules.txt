@@ -48,6 +48,13 @@ waystation_shroud_communion = {
 			is_homicidal = no
 			# Set by em_enclave.8 when the Shroudwalker partnership is accepted
 			has_country_flag = em_shroudwalker_partnership
+			NOT = {
+				count_starbase_modules = {
+					type = waystation_shroud_communion
+					include_being_constructed = yes
+					count >= 1
+				}
+			}
 		}
 	}
 
@@ -211,6 +218,13 @@ waystation_warden_monitoring_post = {
 			species = {
 				NOT = { has_trait = trait_psionic }
 				NOT = { has_trait = trait_latent_psionic }
+			}
+			NOT = {
+				count_starbase_modules = {
+					type = waystation_warden_monitoring_post
+					include_being_constructed = yes
+					count >= 1
+				}
 			}
 		}
 	}
@@ -393,6 +407,13 @@ waystation_xuracorp_gas_cache = {
 			is_homicidal = no
 			is_gestalt = no
 			has_country_flag = em_xuracorp_partnership
+			NOT = {
+				count_starbase_modules = {
+					type = waystation_xuracorp_gas_cache
+					include_being_constructed = yes
+					count >= 1
+				}
+			}
 		}
 	}
 
@@ -491,6 +512,13 @@ waystation_riggan_mote_depot = {
 			is_homicidal = no
 			is_gestalt = no
 			has_country_flag = em_riggan_partnership
+			NOT = {
+				count_starbase_modules = {
+					type = waystation_riggan_mote_depot
+					include_being_constructed = yes
+					count >= 1
+				}
+			}
 		}
 	}
 
@@ -590,6 +618,13 @@ waystation_muutagan_crystal_exchange = {
 			is_homicidal = no
 			is_gestalt = no
 			has_country_flag = em_muutagan_partnership
+			NOT = {
+				count_starbase_modules = {
+					type = waystation_muutagan_crystal_exchange
+					include_being_constructed = yes
+					count >= 1
+				}
+			}
 		}
 	}
 

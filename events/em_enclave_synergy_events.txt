@@ -232,7 +232,7 @@ country_event = {
 	id = em_enclave.8
 	title = em_enclave.8.name
 	desc = em_enclave.8.desc
-	picture = GFX_evt_shroud
+	picture = GFX_evt_shrouded_planet
 
 	is_triggered_only = yes
 

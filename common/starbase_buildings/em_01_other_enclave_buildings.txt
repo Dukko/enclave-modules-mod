@@ -37,6 +37,13 @@ em_curator_archive = {
 		owner = {
 			is_homicidal = no
 			has_country_flag = em_curator_partnership
+			NOT = {
+				count_starbase_buildings = {
+					type = em_curator_archive
+					include_being_constructed = yes
+					count >= 1
+				}
+			}
 		}
 	}
 
@@ -121,6 +128,13 @@ em_artisan_stage = {
 		owner = {
 			is_homicidal = no
 			has_country_flag = em_artisan_partnership
+			NOT = {
+				count_starbase_buildings = {
+					type = em_artisan_stage
+					include_being_constructed = yes
+					count >= 1
+				}
+			}
 		}
 	}
 
@@ -218,6 +232,13 @@ em_numistic_exchange = {
 			is_homicidal = no
 			is_gestalt = no
 			has_country_flag = em_numistic_partnership
+			NOT = {
+				count_starbase_buildings = {
+					type = em_numistic_exchange
+					include_being_constructed = yes
+					count >= 1
+				}
+			}
 		}
 	}
 

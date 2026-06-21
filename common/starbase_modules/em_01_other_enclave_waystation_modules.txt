@@ -40,6 +40,13 @@ waystation_curator_survey_terminal = {
 		owner = {
 			is_homicidal = no
 			has_country_flag = em_curator_partnership
+			NOT = {
+				count_starbase_modules = {
+					type = waystation_curator_survey_terminal
+					include_being_constructed = yes
+					count >= 1
+				}
+			}
 		}
 	}
 
@@ -163,6 +170,13 @@ waystation_artisan_touring_stage = {
 		owner = {
 			is_homicidal = no
 			has_country_flag = em_artisan_partnership
+			NOT = {
+				count_starbase_modules = {
+					type = waystation_artisan_touring_stage
+					include_being_constructed = yes
+					count >= 1
+				}
+			}
 		}
 	}
 
@@ -300,6 +314,13 @@ waystation_numistic_waypoint_exchange = {
 			is_homicidal = no
 			is_gestalt = no
 			has_country_flag = em_numistic_partnership
+			NOT = {
+				count_starbase_modules = {
+					type = waystation_numistic_waypoint_exchange
+					include_being_constructed = yes
+					count >= 1
+				}
+			}
 		}
 	}
 

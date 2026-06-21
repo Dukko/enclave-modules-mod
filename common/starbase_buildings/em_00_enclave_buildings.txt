@@ -33,6 +33,13 @@ em_shroud_conduit = {
 			is_homicidal = no
 			# Set by em_enclave.8 when the Shroudwalker partnership is accepted
 			has_country_flag = em_shroudwalker_partnership
+			NOT = {
+				count_starbase_buildings = {
+					type = em_shroud_conduit
+					include_being_constructed = yes
+					count >= 1
+				}
+			}
 		}
 	}
 
@@ -210,6 +217,13 @@ em_warden_vigil = {
 				NOT = { has_trait = trait_psionic }
 				NOT = { has_trait = trait_latent_psionic }
 			}
+			NOT = {
+				count_starbase_buildings = {
+					type = em_warden_vigil
+					include_being_constructed = yes
+					count >= 1
+				}
+			}
 		}
 	}
 
@@ -334,6 +348,13 @@ em_xuracorp_gas_terminal = {
 			is_homicidal = no
 			is_gestalt = no
 			has_country_flag = em_xuracorp_partnership
+			NOT = {
+				count_starbase_buildings = {
+					type = em_xuracorp_gas_terminal
+					include_being_constructed = yes
+					count >= 1
+				}
+			}
 		}
 	}
 
@@ -394,6 +415,13 @@ em_riggan_mote_hub = {
 			is_homicidal = no
 			is_gestalt = no
 			has_country_flag = em_riggan_partnership
+			NOT = {
+				count_starbase_buildings = {
+					type = em_riggan_mote_hub
+					include_being_constructed = yes
+					count >= 1
+				}
+			}
 		}
 	}
 
@@ -454,6 +482,13 @@ em_muutagan_crystal_atelier = {
 			is_homicidal = no
 			is_gestalt = no
 			has_country_flag = em_muutagan_partnership
+			NOT = {
+				count_starbase_buildings = {
+					type = em_muutagan_crystal_atelier
+					include_being_constructed = yes
+					count >= 1
+				}
+			}
 		}
 	}
 
